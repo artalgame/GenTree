@@ -1,0 +1,13 @@
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\bin\Debug\GenTreeWPF.exe
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\bin\Debug\GenTreeWPF.pdb
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\obj\x86\Debug\MainWindow.baml
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\obj\x86\Debug\MainWindow.g.cs
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\obj\x86\Debug\App.g.cs
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\obj\x86\Debug\GenTreeWPF_MarkupCompile.cache
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\obj\x86\Debug\GenTreeWPF.g.resources
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\obj\x86\Debug\GenTreeWPF.Properties.Resources.resources
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\obj\x86\Debug\GenTreeWPF.exe
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTreeWPF\obj\x86\Debug\GenTreeWPF.pdb
