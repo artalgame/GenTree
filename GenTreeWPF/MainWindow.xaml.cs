@@ -23,5 +23,14 @@ namespace GenTreeWPF
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown(0);
+        }
+
+      
+  
+
     }
 }

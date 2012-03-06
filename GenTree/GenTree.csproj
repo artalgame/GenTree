@@ -47,7 +47,6 @@
     <Compile Include="GenTree.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonList.cs" />
-    <Compile Include="PersonName.cs" />
     <Compile Include="PersonToXml.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
