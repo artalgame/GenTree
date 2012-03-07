@@ -2,9 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:genTr="clr-namespace:GenTree"
+        xmlns:genTr="clr-namespace:GenTreeBE"
         Title="MainWindow" Name="Main_Window" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Height="320" Width="480">
+        Height="422" Width="577" Loaded="Main_Window_Loaded">
     <Window.Background>
         <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
             <GradientStop Color="#FF672FE5" Offset="0" />
@@ -12,14 +12,14 @@
             <GradientStop Color="#D7D2FCD5" Offset="0.516" />
         </LinearGradientBrush>
     </Window.Background>
-    <Grid  Height="292" Name="grid1" Width="467" DataContext="{Binding}" HorizontalAlignment="Left" VerticalAlignment="Top">
+    <Grid  Height="394" Name="grid1" Width="565" DataContext="{Binding}" HorizontalAlignment="Left" VerticalAlignment="Top">
         <Grid.RowDefinitions>
-            <RowDefinition Height="53*" />
-            <RowDefinition Height="23*" />
-            <RowDefinition Height="11*" />
-            <RowDefinition Height="39*" />
+            <RowDefinition Height="75*" />
+            <RowDefinition Height="33*" />
+            <RowDefinition Height="21*" />
+            <RowDefinition Height="50*" />
             <RowDefinition Height="0*" />
-            <RowDefinition Height="118*" />
+            <RowDefinition Height="168*" />
             <RowDefinition Height="47" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -30,38 +30,57 @@
             <ColumnDefinition Width="185*" />
             <ColumnDefinition Width="53*" />
         </Grid.ColumnDefinitions>
-        <Label Content="GenTree" Height="72" HorizontalAlignment="Left" Margin="0,15,0,0" Name="label1" VerticalAlignment="Top" Width="180" FontWeight="Bold" FontSize="25" FontFamily="Rod" FontStretch="Condensed" FontStyle="Normal" Grid.RowSpan="3" Target="{Binding}">
+        <Label Content="GenTree" Height="72" HorizontalAlignment="Left" Margin="0,15,0,0" Name="ProductNameLabel" VerticalAlignment="Top" Width="180" FontWeight="Bold" FontSize="25" FontFamily="Rod" FontStretch="Condensed" FontStyle="Normal" Grid.RowSpan="3" Target="{Binding}">
             <Label.Background>
                 <SolidColorBrush />
             </Label.Background>
         </Label>
-        <Button Content="Help" Grid.Column="5" Height="38" Name="button1" VerticalAlignment="Top" Margin="0,15,12,0" />
-        <Label Content="Label" Height="33" HorizontalAlignment="Left" Margin="0,6,0,0" Name="label2" VerticalAlignment="Top" Width="180" Grid.Row="3" Target="{Binding}" />
-        <Button Content="Exit" Grid.Column="5" Grid.Row="6" Height="35" HorizontalAlignment="Left" Margin="0,1,0,0" Name="button2" VerticalAlignment="Top" Width="41" IsCancel="True" Click="button2_Click" />
-        <Button Content="Select this tree" Grid.Column="4" Grid.Row="6" Height="29" HorizontalAlignment="Left" Margin="11,7,0,0" Name="button3" VerticalAlignment="Top" Width="142" />
-        <Label Content="Label" Grid.Column="4" Grid.Row="1" Height="23" HorizontalAlignment="Left" Name="label3" VerticalAlignment="Bottom" Width="185" />
-        <Label Content="Label" Grid.Column="4" Grid.Row="5" Height="28" HorizontalAlignment="Left" Margin="0,91,0,0" Name="label4" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="226" />
-        <Button Content="Create new TREE" Grid.Row="6" Height="23" 
-                HorizontalAlignment="Left" Margin="22,7,0,0" 
-                Name="button4" VerticalAlignment="Top" Width="125">
+        <Button Content="Help" Grid.Column="5" Height="38" Name="HelpButton" VerticalAlignment="Top" Margin="0,15,12,0" Click="button1_Click" />
+        <Label Content="Label" Height="33" HorizontalAlignment="Left" Name="VersionLabel" VerticalAlignment="Top" Width="180" Grid.Row="1" Target="{Binding}" />
+        <Button Content="Exit" Grid.Column="5" Grid.Row="5" Height="35" HorizontalAlignment="Left" Margin="0,121,0,0" Name="ExitButton" VerticalAlignment="Top" Width="41" IsCancel="True" Click="button2_Click" />
+        <Button Content="Select this tree" Grid.Column="4" Grid.Row="5" Height="29" HorizontalAlignment="Left" Margin="14,124,0,0" Name="SelectTreeButton" VerticalAlignment="Top" Width="142" />
+        <Label Content="List of Created Tree" Grid.Column="4" Grid.Row="1" Height="23" HorizontalAlignment="Left" Name="ListOfCrTreeLabel" VerticalAlignment="Bottom" Width="185" />
+        <Label Content="No selected tree" Grid.Column="4" Grid.Row="5" Height="22" HorizontalAlignment="Left" Margin="0,91,0,0" Name="SelectedTreeLabel" VerticalAlignment="Top" Width="261" />
+        <Button Content="Create new TREE" Grid.Row="5" Height="23" 
+                HorizontalAlignment="Left" Margin="28,130,0,0" 
+                Name="CreateTreeButton" VerticalAlignment="Top" Width="125" Click="CreateTreeButton_Click">
             <Button.ToolTip>
                 <TextBlock>
                     Press to create new Family Tree
                 </TextBlock>
             </Button.ToolTip>
         </Button>
-        <Label Content="Label" Grid.Row="5" Height="83" HorizontalAlignment="Left" Margin="12,22,0,0" Name="label5" VerticalAlignment="Top" Width="146" BorderBrush="{x:Null}" />
+        <Label Grid.Row="3" Height="113" HorizontalAlignment="Left" Margin="-6,0,0,0" Name="label5" VerticalAlignment="Top" Width="146" BorderBrush="{x:Null}" Grid.RowSpan="3">
+            
+        </Label>
+        <Border BorderThickness="5" Height="184" HorizontalAlignment="Left" Margin="6,0,0,0" Name="border1" VerticalAlignment="Top" Width="174" OpacityMask="Black" CornerRadius="10" Grid.Row="2" Grid.RowSpan="4">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF6BC759" Offset="0" />
+                        <GradientStop Color="#FF36CE1A" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <TextBlock Grid.Row="5" Height="173" HorizontalAlignment="Left" Margin="0" Name="Welcome" 
+                           Text="Welcome to GenTree. Only few easy steps and our family tree will created. If you have created tree you can open and edit it(select it on table on right ), else - press Create new TREE below" VerticalAlignment="Top" Width="161" TextWrapping="WrapWithOverflow" FlowDirection="LeftToRight" Foreground="#FF461FC7" FontFamily="Andy" FontSize="16"><TextBlock.TextEffects><TextEffect /></TextBlock.TextEffects><TextBlock.Background><SolidColorBrush /></TextBlock.Background></TextBlock>
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF69C159" Offset="0" />
+                        <GradientStop Color="#FF28DE44" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+            </Border>
         <ListView Grid.Column="4" Grid.Row="2" Grid.RowSpan="4" 
-                  Height="136" HorizontalAlignment="Left" 
-                  Name="listView1" VerticalAlignment="Top" Width="185">
+                  Height="165" HorizontalAlignment="Left" 
+                  Name="CrTreesListView" VerticalAlignment="Top" Width="261">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="name" Width="45" DisplayMemberBinding="Name"/>
-                    <GridViewColumn Header="Date of Create" Width="45" DisplayMemberBinding="DateOfCreate"/>
-                    <GridViewColumn Header="Date of Edit" Width="45" DisplayMemberBinding="DateOfLastEdit"/>
+                    <GridViewColumn Header="name" Width="90"/>
+                    <GridViewColumn Header="Created" Width="80"/>
+                    <GridViewColumn Header="Last Edited" Width="80"/>
                 </GridView>
             </ListView.View>
            
         </ListView>
+        
     </Grid>
 </Window>

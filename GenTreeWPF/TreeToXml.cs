@@ -5,11 +5,26 @@ using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.IO;
+using GenTreeBE;
 
-namespace GenTree
+namespace GenTreeDAL
 {
     public class TreeToXml : SaveOrOpenTree
     {
+        public List<GenTree> GetSavedTrees(string directoryName)
+        {
+            DirectoryInfo directory = new DirectoryInfo(directoryName);
+            List<GenTree> findedTrees = new List<GenTree>();
+            foreach (FileInfo file in directory.GetFiles(".xml"))
+            {
+                GenTree tree;
+                if (OpenTree(file.FullName, out tree,true))
+                {
+                    findedTrees.Add(tree);
+                }
+            }
+            return findedTrees;
+        }
         public bool SaveTree(string fileName, GenTree tree)
         {
             XDocument xmlTree = new XDocument();
@@ -60,7 +75,7 @@ namespace GenTree
             }
         }
 
-        public bool OpenTree(string fileName, out GenTree tree)
+        public bool OpenTree(string fileName, out GenTree tree,bool isReadInformationOnly=false)
         {
             try
             {
@@ -75,7 +90,11 @@ namespace GenTree
                     DateTime lastEditTime = DateTime.Parse(root.Attribute("lastEditDate").Value);
                     int id = Int32.Parse(root.Attribute("id").Value);
                     string information = root.Attribute("information").Value;
-
+                    if (isReadInformationOnly)
+                    {
+                        tree = new GenTree(createTime, lastEditTime, treename, id, information, null, null); 
+                        return true;
+                    }
                     List<Person> personList = new List<Person>();
                     Person somePerson;
                     PersonToXml readPerson = new PersonToXml();
@@ -112,8 +131,6 @@ namespace GenTree
                 else
                 {
                     throw new FileNotFoundException();
-                    tree = null;
-                    return false;
                 }
             }
             catch(Exception)
@@ -123,15 +140,6 @@ namespace GenTree
                 
             }
         }
-
-        public bool SaveTree(GenTree tree)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool OpenTree(out GenTree tree)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

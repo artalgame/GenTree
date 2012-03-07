@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 
-namespace GenTree
+namespace GenTreeBE
 {
     public class RelationsTable : IEnumerable<RelationBetweenTwoPerson>
     {

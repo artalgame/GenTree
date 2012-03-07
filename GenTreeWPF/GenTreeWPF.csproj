@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,13 +56,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CreateTreeWindow.xaml.cs">
+      <DependentUpon>CreateTreeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Relations.cs" />
     <Compile Include="RelationsTable.cs" />
     <Compile Include="RelationTableToXml.cs" />
     <Compile Include="RelationToXml.cs" />
     <Compile Include="RelativeBetweenTwoPerson.cs" />
     <Compile Include="SaveOrOpenTree.cs" />
+    <Compile Include="TreeProcessor.cs" />
     <Compile Include="TreeToXml.cs" />
+    <Page Include="CreateTreeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -98,6 +107,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

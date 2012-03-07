@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GenTree
+namespace GenTreeBE
 {
     public enum Genders { Male, Female }
 }

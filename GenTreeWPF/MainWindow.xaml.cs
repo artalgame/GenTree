@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GenTreeCore;
+using GenTreeBE;
 
 namespace GenTreeWPF
 {
@@ -27,6 +29,33 @@ namespace GenTreeWPF
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown(0);
+        }
+
+        private void Main_Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            VersionLabel.Content = "current version 0.1";
+            List<GenTree> treesInfo = TreeProcessor.TreeProcessorSingletone.GetTreesInfo();
+            GridView treesInfoGrid = new GridView();
+            if((treesInfo!=null)&&(treesInfo.Count!=0))
+            {
+                GridView treeGrid= (GridView)CrTreesListView.View;
+            }
+            else
+            {
+               SelectedTreeLabel.Content = "No created trees";
+            }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(Main_Window, "Gen tree.Created by artalgame");
+        }
+
+        private void CreateTreeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            CreateTreeWindow t = new CreateTreeWindow(); ;
+            t.Show();
         }
 
       

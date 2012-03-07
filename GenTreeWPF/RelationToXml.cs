@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using GenTreeBE;
 
-namespace GenTree
+namespace GenTreeDAL
 {
     internal class RelationToXml
     {

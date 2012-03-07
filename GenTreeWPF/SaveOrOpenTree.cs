@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GenTree
+namespace GenTreeBE
 {
     public interface SaveOrOpenTree
     {
-        bool SaveTree(GenTree tree);
-        bool OpenTree(out GenTree tree);
+        bool SaveTree(string fileName,GenTree tree);
+        bool OpenTree(string fileName, out GenTree tree, bool isForInformationOnly);
     }
 }
