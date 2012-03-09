@@ -65,6 +65,9 @@
     <Compile Include="RelationToXml.cs" />
     <Compile Include="RelativeBetweenTwoPerson.cs" />
     <Compile Include="SaveOrOpenTree.cs" />
+    <Compile Include="TreeEditorWindow.xaml.cs">
+      <DependentUpon>TreeEditorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TreeProcessor.cs" />
     <Compile Include="TreeToXml.cs" />
     <Page Include="CreateTreeWindow.xaml">
@@ -85,6 +88,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TreeEditorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Person.cs" />

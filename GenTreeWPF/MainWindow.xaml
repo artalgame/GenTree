@@ -40,7 +40,7 @@
         <Button Content="Exit" Grid.Column="5" Grid.Row="5" Height="35" HorizontalAlignment="Left" Margin="0,121,0,0" Name="ExitButton" VerticalAlignment="Top" Width="41" IsCancel="True" Click="button2_Click" />
         <Button Content="Select this tree" Grid.Column="4" Grid.Row="5" Height="29" HorizontalAlignment="Left" Margin="14,124,0,0" Name="SelectTreeButton" VerticalAlignment="Top" Width="142" />
         <Label Content="List of Created Tree" Grid.Column="4" Grid.Row="1" Height="23" HorizontalAlignment="Left" Name="ListOfCrTreeLabel" VerticalAlignment="Bottom" Width="185" />
-        <Label Content="No selected tree" Grid.Column="4" Grid.Row="5" Height="22" HorizontalAlignment="Left" Margin="0,91,0,0" Name="SelectedTreeLabel" VerticalAlignment="Top" Width="261" />
+        <Label Content="No selected tree" Grid.Column="4" Grid.Row="5" Height="27" HorizontalAlignment="Left" Margin="0,91,0,0" Name="SelectedTreeLabel" VerticalAlignment="Top" Width="261" />
         <Button Content="Create new TREE" Grid.Row="5" Height="23" 
                 HorizontalAlignment="Left" Margin="28,130,0,0" 
                 Name="CreateTreeButton" VerticalAlignment="Top" Width="125" Click="CreateTreeButton_Click">
@@ -81,6 +81,5 @@
             </ListView.View>
            
         </ListView>
-        
     </Grid>
 </Window>

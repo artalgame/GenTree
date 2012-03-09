@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections;
 
 namespace GenTreeBE
 {
-    public class PersonList
+    public class PersonList:IEnumerable<Person>
     {
         public static PersonList GetPersonList(List<Person> persons = null)
         {
@@ -67,5 +68,15 @@ namespace GenTreeBE
             }
         }
 
+
+        public IEnumerator<Person> GetEnumerator()
+        {
+            return (IEnumerator<Person>)_persons ;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return (IEnumerator)_persons;
+        }
     }
 }

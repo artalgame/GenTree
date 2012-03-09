@@ -1,0 +1,40 @@
+﻿<Window x:Class="GenTreeWPF.CreateTreeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CreateTreeWindow" Height="347" Width="300">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="#FF6487D8" Offset="0" />
+            <GradientStop Color="White" Offset="1" />
+            <GradientStop Color="#FFB9EDED" Offset="0.549" />
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid Height="452" Width="286">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*" />
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="11*" />
+            <RowDefinition Height="12*" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="86*" />
+            <RowDefinition Height="231*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="41*" />
+            <ColumnDefinition Width="11*" />
+            <ColumnDefinition Width="95*" />
+            <ColumnDefinition Width="92*" />
+            <ColumnDefinition Width="47*" />
+        </Grid.ColumnDefinitions>
+        
+        <Border BorderBrush="#FF7FC43A" BorderThickness="100" Height="220" HorizontalAlignment="Center" Name="border1" VerticalAlignment="Top" Width="198" CornerRadius="3" Background="Chartreuse" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="3" Margin="0,38,0,0">
+        </Border>
+        <TextBox Grid.Column="2" Grid.Row="1" Height="23" HorizontalAlignment="Left" Name="NameTextBox" VerticalAlignment="Top" Width="113" Margin="64,31,0,0" Grid.ColumnSpan="2" Grid.RowSpan="3" />
+        <TextBlock Grid.Column="2" Grid.Row="1" Height="23" HorizontalAlignment="Left" Name="NameTextBlock" Text="tree's name" VerticalAlignment="Top" Width="81" Foreground="#FF813B07" Margin="0,31,0,0" Grid.RowSpan="3" />
+        <TextBlock Grid.Column="2" Grid.Row="3" Height="23" HorizontalAlignment="Left" Name="InfoTextBlock" Text="Information" VerticalAlignment="Top" Width="69" Grid.ColumnSpan="2" Margin="62,5,0,0" Foreground="#FF74380C" Grid.RowSpan="2" />
+        <TextBlock Height="31" HorizontalAlignment="Left" Margin="34,0,0,0" Name="TitleTextBox" Text="Create new Tree" VerticalAlignment="Top" Width="121" Grid.ColumnSpan="2" Grid.Column="2" FontFamily="Global Monospace" Foreground="#FF1518B2" Grid.Row="1" />
+        <Button Content="Begin to add Persons" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="6" Height="23" HorizontalAlignment="Left" Margin="15,54,0,0" Name="ContinueButton" VerticalAlignment="Top" Width="112" Click="ContinueButton_Click" />
+        <Button Content="Back to Start Page" Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="BackButton" VerticalAlignment="Top" Width="112" Grid.ColumnSpan="3" Click="BackButton_Click" />
+        <TextBox Grid.Column="2" Grid.Row="5" Height="77" Margin="2,9,10,0" Name="InfoTextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+    </Grid>
+</Window>

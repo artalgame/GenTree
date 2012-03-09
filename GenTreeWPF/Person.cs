@@ -7,6 +7,11 @@ namespace GenTreeBE
 { 
   public  class Person
     {
+      public string PathToPhoto
+      {
+          get;
+          set;
+      }
       /// <summary>
       /// For other notes about person
       /// </summary>
@@ -19,12 +24,12 @@ namespace GenTreeBE
           get;
           set;
       }
-      public DateTime DateOfBorn
+      public DateTime? DateOfBorn
       {
           get;
           set;
       }
-      public DateTime DateOfDeath
+      public DateTime? DateOfDeath
       {
           get;
           set;
@@ -66,7 +71,7 @@ namespace GenTreeBE
       }
 
       public Person(int id, String personName, DateTime dateOfBorn, DateTime dateOfDeath,
-          Genders gender, int genLayer, String notes)
+          Genders gender,  String notes,string pathToPhoto = null,int genLayer=0)
       {
           ID = id;
           NameOfPerson = personName;
@@ -75,6 +80,7 @@ namespace GenTreeBE
           Gender = gender;
           GenLayer = genLayer;
           Note = notes;
+          PathToPhoto = pathToPhoto;
       }
     }
 }

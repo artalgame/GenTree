@@ -41,7 +41,7 @@ namespace GenTreeDAL
                     DateTime bornDate = DateTime.Parse(xPerson.Attribute("bornDate").Value);
                     DateTime deathDate = DateTime.Parse(xPerson.Attribute("deathDate").Value);
                     string note = xPerson.Attribute("note").Value;
-                    person = new Person(ID,name,bornDate,deathDate,gender,layer,note);
+                    person = new Person(ID, name, bornDate, deathDate, gender, note,null,layer);
                     return true;
                 }
                 catch(Exception)
