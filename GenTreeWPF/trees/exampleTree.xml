@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tree name="exampleTree" createDate="13.03.2012 10:12:11" lastEditDate="13.03.2012 10:12:11" id="1755071434" information="this tree was created as example, don't use this tree">
+  <persons>
+    <person id="-1359094621" name="person " layer="0" gender="Female" bornDate="13.03.2012 10:12:27" deathDate="" note="" />
+    <person id="-1382359901" name="name" layer="0" gender="Female" bornDate="30.03.2012 0:00:00" deathDate="" note="" />
+    <person id="-1365058364" name="person name" layer="0" gender="Male" bornDate="13.03.2012 10:12:30" deathDate="" note="" />
+    <person id="-1373709116" name="person" layer="0" gender="Female" bornDate="17.03.2012 0:00:00" deathDate="" note="" />
+    <person id="-1352344294" name="person name" layer="0" gender="Male" bornDate="23.03.2012 0:00:00" deathDate="" note="" />
+    <person id="-1360995046" name="person name" layer="0" gender="Male" bornDate="23.03.2012 0:00:00" deathDate="" note="" />
+    <person id="-323735208" name="person name" layer="0" gender="Female" bornDate="13.03.2012 10:13:00" deathDate="" note="" />
+    <person id="-321834664" name="person name" layer="0" gender="Female" bornDate="13.03.2012 10:13:01" deathDate="" note="" />
+    <person id="-330485416" name="person name" layer="0" gender="Female" bornDate="13.03.2012 10:13:05" deathDate="" note="" />
+    <person id="-317771432" name="person name" layer="0" gender="Female" bornDate="13.03.2012 10:13:07" deathDate="" note="" />
+    <person id="-341036712" name="person name" layer="0" gender="Female" bornDate="13.03.2012 10:13:08" deathDate="" note="" />
+    <person id="-323735175" name="person name" layer="0" gender="Female" bornDate="13.03.2012 10:13:10" deathDate="" note="" />
+    <person id="-321834631" name="person name" layer="0" gender="Female" bornDate="13.03.2012 10:13:11" deathDate="" note="" />
+    <person id="-309120647" name="person name" layer="0" gender="Female" bornDate="13.03.2012 10:13:13" deathDate="" note="" />
+    <person id="-330485383" name="person name" layer="0" gender="Female" bornDate="13.03.2012 10:13:15" deathDate="" note="" />
+  </persons>
+  <table />
+</tree>

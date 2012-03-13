@@ -27,9 +27,9 @@ namespace GenTreeWPF
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
             var tmpWind = new MainWindow();
             tmpWind.Show();
+            this.Close();           
         }
 
         private void ContinueButton_Click(object sender, RoutedEventArgs e)
@@ -39,12 +39,11 @@ namespace GenTreeWPF
             if ((name != "") && (name != null))
             {
                 int ID = (name + info).GetHashCode();
-                this.Hide();
                 TreeProcessor.TreeProcessorSingletone.SetCurrentTree(
-                    new GenTree(DateTime.Now, DateTime.Now, name, ID, info));
-                this.Hide();
+                    new GenTree(DateTime.Now, DateTime.Now, name, info));
                 var tmpWind = new TreeEditorWindow();
                 tmpWind.Show();
+                this.Close();
             }
             else
                 MessageBox.Show("Please, fill 'tree's name' field");

@@ -38,21 +38,22 @@ namespace GenTreeBE
         }
         public bool AddNewPerson(Person newPerson)
         {
-            Person tmp = _persons.Single<Person>(x => x.ID == newPerson.ID);
+            Person tmp;
             try
             {
+                tmp = _persons.Single<Person>(x => x.ID == newPerson.ID);
+            }
+            catch
+            {
+                tmp = null;
+            }
                 if (tmp == null)
                 {
                     _persons.Add(newPerson);
                     return true;
                 }
                 else
-                    return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+                    return false;
         }
         public bool GetPersonFromID(int ID, out Person person)
         {
@@ -68,15 +69,19 @@ namespace GenTreeBE
             }
         }
 
+        public void DeletePersonFromList(Person person)
+        {
+            _persons.Remove(person);
+        }
 
         public IEnumerator<Person> GetEnumerator()
         {
-            return (IEnumerator<Person>)_persons ;
+            return (IEnumerator<Person>)_persons.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return (IEnumerator)_persons;
+            return (IEnumerator)_persons.GetEnumerator();
         }
     }
 }

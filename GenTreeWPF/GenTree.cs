@@ -111,17 +111,25 @@ namespace GenTreeBE
           { 
           }
       }
+      public void DeletePerson(Person person)
+      {
+          Persons.DeletePersonFromList(person);
+          Relations.DeleteRelationOfPerson(person);
+      }
       public GenTree(DateTime dateOfCreate, DateTime dateOfLastEdit,
-          String name, int id, string information, List<Person> personList = null,
+          String name,string information,int id = -1, List<Person> personList = null,
           List<RelationBetweenTwoPerson> relationList=null)
       {
           _dateOfCreate = dateOfCreate;
           _dateOfLastEdit = dateOfLastEdit;
           _name = name;
-          _id = id;
           _information = information;
           _persons = PersonList.GetPersonList(personList);
           _relationTable = RelationsTable.GetTable(relationList);
+          if (id == -1)
+              _id = (name + dateOfCreate.ToString() + information).GetHashCode();
+          else
+              _id = id;
       }
     }
 }

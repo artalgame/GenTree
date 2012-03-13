@@ -14,8 +14,20 @@ namespace GenTreeCore
         private string _treeCatalogName;
         private GenTree _currentTree;
         private Person _currentPerson;
-
         private static TreeProcessor _singletone;
+        public bool AddNewPersonToTree(Person newPerson)
+        {
+            try
+            {
+                if (_currentTree.Persons.AddNewPerson(newPerson))
+                    return true;
+                else return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public static  TreeProcessor TreeProcessorSingletone
         {
             get
@@ -29,12 +41,13 @@ namespace GenTreeCore
             private set { }
         }
 
-        public bool SetCurrentTree(int id)
+        public bool SetCurrentTree(int index)
         {
             try
             {
-                SetCurrentTree(_listOfTreeInfo.Single<GenTree>(x => x.ID == id));
-                return true;
+                GenTree curTreeInfo = _listOfTreeInfo[index];
+
+                return (new TreeToXml().OpenTree(_treeCatalogName + "\\" + curTreeInfo.Name + ".xml", out _currentTree));
             }
             catch
             {
@@ -116,6 +129,11 @@ namespace GenTreeCore
             {
                 _listOfTreeInfo = null;
             }
+        }
+
+        internal void SaveCurrentTreeToFile()
+        {
+            new TreeToXml().SaveTree(_treeCatalogName+"\\"+_currentTree.Name+".xml",CurrentTree);
         }
     }
 }

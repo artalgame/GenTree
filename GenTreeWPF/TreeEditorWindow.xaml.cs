@@ -15,21 +15,43 @@ using GenTreeCore;
 
 namespace GenTreeWPF
 {
+    
     /// <summary>
     /// Interaction logic for TreeEditor.xaml
     /// </summary>
     public partial class TreeEditorWindow : Window
     {
+        private bool isDeleteButtonActive;
         public TreeEditorWindow()
         {
             InitializeComponent();
-        }
-
-        
+            isDeleteButtonActive = false;
+        }        
 
         private void listView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            int selectPersonIndex = PeopleListView.SelectedIndex;
+            if (selectPersonIndex != -1)
+            {
+                isDeleteButtonActive = true;
+                NewPersonButton.Content = "Delete person";
+                TreeProcessor.TreeProcessorSingletone.CurrentPerson =
+                    TreeProcessor.TreeProcessorSingletone.CurrentTree.Persons.GetPersonList()[selectPersonIndex];
+                RefreshPersonEditor(TreeProcessor.TreeProcessorSingletone.CurrentPerson);
+            }
+        }
 
+        private void RefreshPersonEditor(Person person)
+        {
+            NameTextBox.Text = person.NameOfPerson;
+            if(person.DateOfBorn != null)
+            BornDatePicker.Text = person.DateOfBorn.ToString();
+            if (person.DateOfDeath != null)
+                DeathDatePicker.Text = person.DateOfDeath.ToString();
+            if (person.Gender == Genders.Male)
+                GenderComboBox.SelectedIndex = 1;
+            else GenderComboBox.SelectedIndex = 0;
+            NoteTextBox.Text = person.Note;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -49,10 +71,64 @@ namespace GenTreeWPF
             GenderComboBox.Items.Clear();
             GenderComboBox.Items.Add(Genders.Female.ToString());
             GenderComboBox.Items.Add(Genders.Male.ToString());
-            foreach(Person person in TreeProcessor.TreeProcessorSingletone.CurrentTree.Persons)
+            RefreshListViewOfPerson();
+            
+        }
+
+        private void NewPersonButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (isDeleteButtonActive)
             {
-                PeopleListView.Items.Add(person.NameOfPerson + "   " + person.Gender.ToString());          
+                TreeProcessor.TreeProcessorSingletone.CurrentTree.DeletePerson(
+                    TreeProcessor.TreeProcessorSingletone.CurrentPerson);
+                TreeProcessor.TreeProcessorSingletone.CurrentPerson = null;
+                isDeleteButtonActive = false;
+                NewPersonButton.Content = "Add New Person";
+                RefreshListViewOfPerson();
             }
+            else
+            {
+                if (TreeProcessor.TreeProcessorSingletone.AddNewPersonToTree(
+                    new Person("person name", DateTime.Now, null, Genders.Female, "")))
+                {
+                    RefreshListViewOfPerson();
+                }
+                else
+                    MessageBox.Show("Some error");
+            }
+        }
+        private void RefreshListViewOfPerson()
+        {
+            PeopleListView.Items.Clear();
+            foreach (Person person in TreeProcessor.TreeProcessorSingletone.CurrentTree.Persons)
+            {
+                PeopleListView.Items.Add(person.NameOfPerson + "   " + person.Gender.ToString());
+            }
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (TreeProcessor.TreeProcessorSingletone.CurrentPerson != null)
+            {
+                isDeleteButtonActive = false;
+                string name = NameTextBox.Text;
+                DateTime? bornDate = BornDatePicker.SelectedDate;
+                DateTime? deathDate = DeathDatePicker.SelectedDate;
+                Genders gender = (Genders)Enum.Parse(typeof(Genders), GenderComboBox.SelectedItem.ToString());
+                string note = NoteTextBox.Text;
+                TreeProcessor.TreeProcessorSingletone.CurrentPerson.NameOfPerson = name;
+                TreeProcessor.TreeProcessorSingletone.CurrentPerson.DateOfBorn = bornDate;
+                TreeProcessor.TreeProcessorSingletone.CurrentPerson.DateOfDeath = deathDate;
+                TreeProcessor.TreeProcessorSingletone.CurrentPerson.Gender = gender;
+                TreeProcessor.TreeProcessorSingletone.CurrentPerson.Note = note;
+                RefreshListViewOfPerson();
+                TreeProcessor.TreeProcessorSingletone.CurrentPerson = null;
+            }
+        }
+
+        private void SaveTreeButton_Click(object sender, RoutedEventArgs e)
+        {
+            TreeProcessor.TreeProcessorSingletone.SaveCurrentTreeToFile();
         }
     }
 }

@@ -35,10 +35,10 @@ namespace GenTreeWPF
         {
             VersionLabel.Content = "current version 0.1";
             List<GenTree> treesInfo = TreeProcessor.TreeProcessorSingletone.GetTreesInfo();
-            GridView treesInfoGrid = new GridView();
             if((treesInfo!=null)&&(treesInfo.Count!=0))
             {
-                GridView treeGrid= (GridView)CrTreesListView.View;
+                CrTreesDataGrid.ItemsSource = treesInfo;
+                //CrTreesDataGrid.ItemsSource = treesInfo.Select<GenTree,string>(x => x.Name);
             }
             else
             {
@@ -53,9 +53,43 @@ namespace GenTreeWPF
 
         private void CreateTreeButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            CreateTreeWindow t = new CreateTreeWindow(); ;
+            CreateTreeWindow t = new CreateTreeWindow();
             t.Show();
+            this.Close();
+            
+        }
+
+        private void CrTreesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GenTree selTree;
+            TreeProcessor.TreeProcessorSingletone.GetTreeInfoFromIndex(
+                CrTreesListView.SelectedIndex, out selTree);
+            SelectedTreeLabel.Content = selTree.Information;
+        }
+
+        private void SelectTreeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (CrTreesDataGrid.SelectedIndex != -1)
+            {
+                if (TreeProcessor.TreeProcessorSingletone.SetCurrentTree(CrTreesDataGrid.SelectedIndex))
+                {
+                    var wind = new TreeEditorWindow();
+                    wind.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Some error!!!");
+                }
+            }
+        }
+
+        private void CrTreesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GenTree selTree;
+            TreeProcessor.TreeProcessorSingletone.GetTreeInfoFromIndex(
+            CrTreesDataGrid.SelectedIndex, out selTree);
+            SelectedTreeLabel.Content = selTree.Information;
         }
 
       

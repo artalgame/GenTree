@@ -73,7 +73,10 @@ namespace GenTreeBE
             }
         }
 
-
+        public void DeleteRelationOfPerson(Person person)
+        {
+            _relationsList.RemoveAll(x => (x.FirstPerson == person) || (x.SecondPerson == person));
+        }
         public IEnumerator<RelationBetweenTwoPerson> GetEnumerator()
         {
             return _relationsList.GetEnumerator();

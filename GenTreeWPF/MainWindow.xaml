@@ -38,7 +38,7 @@
         <Button Content="Help" Grid.Column="5" Height="38" Name="HelpButton" VerticalAlignment="Top" Margin="0,15,12,0" Click="button1_Click" />
         <Label Content="Label" Height="33" HorizontalAlignment="Left" Name="VersionLabel" VerticalAlignment="Top" Width="180" Grid.Row="1" Target="{Binding}" />
         <Button Content="Exit" Grid.Column="5" Grid.Row="5" Height="35" HorizontalAlignment="Left" Margin="0,121,0,0" Name="ExitButton" VerticalAlignment="Top" Width="41" IsCancel="True" Click="button2_Click" />
-        <Button Content="Select this tree" Grid.Column="4" Grid.Row="5" Height="29" HorizontalAlignment="Left" Margin="14,124,0,0" Name="SelectTreeButton" VerticalAlignment="Top" Width="142" />
+        <Button Content="Select this tree" Grid.Column="4" Grid.Row="5" Height="29" HorizontalAlignment="Left" Margin="14,124,0,0" Name="SelectTreeButton" VerticalAlignment="Top" Width="142" Click="SelectTreeButton_Click" />
         <Label Content="List of Created Tree" Grid.Column="4" Grid.Row="1" Height="23" HorizontalAlignment="Left" Name="ListOfCrTreeLabel" VerticalAlignment="Bottom" Width="185" />
         <Label Content="No selected tree" Grid.Column="4" Grid.Row="5" Height="27" HorizontalAlignment="Left" Margin="0,91,0,0" Name="SelectedTreeLabel" VerticalAlignment="Top" Width="261" />
         <Button Content="Create new TREE" Grid.Row="5" Height="23" 
@@ -71,7 +71,7 @@
             </Border>
         <ListView Grid.Column="4" Grid.Row="2" Grid.RowSpan="4" 
                   Height="165" HorizontalAlignment="Left" 
-                  Name="CrTreesListView" VerticalAlignment="Top" Width="261">
+                  Name="CrTreesListView" VerticalAlignment="Top" Width="261" SelectionChanged="CrTreesListView_SelectionChanged" IsEnabled="True" Visibility="Collapsed">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="name" Width="90"/>
@@ -81,5 +81,10 @@
             </ListView.View>
            
         </ListView>
+        <DataGrid AutoGenerateColumns="True" Grid.Column="4" Grid.RowSpan="5" Height="198" HorizontalAlignment="Left" Name="CrTreesDataGrid" VerticalAlignment="Top" Width="261" SelectionChanged="CrTreesDataGrid_SelectionChanged" Grid.Row="1" ItemsSource="{Binding}" SelectionMode="Single" SelectionUnit="FullRow" AreRowDetailsFrozen="True" IsReadOnly="True">
+            <DataGrid.Columns>
+                
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

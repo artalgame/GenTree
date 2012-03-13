@@ -36,12 +36,25 @@ namespace GenTreeDAL
                 {                    
                     int ID = Int32.Parse(xPerson.Attribute("id").Value);
                     string name = xPerson.Attribute("name").Value;
+
                     int layer= Int32.Parse(xPerson.Attribute("layer").Value);
                     Genders gender = (Genders)Enum.Parse(typeof(Genders),xPerson.Attribute("gender").Value);
-                    DateTime bornDate = DateTime.Parse(xPerson.Attribute("bornDate").Value);
-                    DateTime deathDate = DateTime.Parse(xPerson.Attribute("deathDate").Value);
+                    
+                    DateTime bornDate;
+                    DateTime? BornDate;
+                    if (DateTime.TryParse(xPerson.Attribute("bornDate").Value, out bornDate))
+                        BornDate = bornDate;
+                    else
+                        BornDate = null;
+                    
+                    DateTime deathDate;
+                    DateTime? DeathDate;
+                    if (DateTime.TryParse(xPerson.Attribute("deathDate").Value, out deathDate))
+                        DeathDate = deathDate;
+                    else
+                        DeathDate = null;
                     string note = xPerson.Attribute("note").Value;
-                    person = new Person(ID, name, bornDate, deathDate, gender, note,null,layer);
+                    person = new Person(name, BornDate, DeathDate, gender, note,ID,null,layer);
                     return true;
                 }
                 catch(Exception)

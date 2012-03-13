@@ -15,7 +15,7 @@ namespace GenTreeDAL
         {
             DirectoryInfo directory = new DirectoryInfo(directoryName);
             List<GenTree> findedTrees = new List<GenTree>();
-            foreach (FileInfo file in directory.GetFiles(".xml"))
+            foreach (FileInfo file in directory.GetFiles("*.xml"))
             {
                 GenTree tree;
                 if (OpenTree(file.FullName, out tree,true))
@@ -66,7 +66,7 @@ namespace GenTreeDAL
                 }
                 root.Add(xTable);
                 xmlTree.Add(root);
-                xmlTree.Save(new XmlTextWriter(fileName, null));
+                xmlTree.Save(fileName);
                 return true;
             }
             catch (Exception)
@@ -82,7 +82,7 @@ namespace GenTreeDAL
                 if (File.Exists(fileName))
                 {
 
-                    XmlTextReader xmlFile = new XmlTextReader(File.OpenText(fileName), null);
+                    XmlTextReader xmlFile = new XmlTextReader(fileName);
                     XDocument xmlTree = XDocument.Load(xmlFile);
                     XElement root = xmlTree.Root;
                     string treename = root.Attribute("name").Value;
@@ -92,7 +92,7 @@ namespace GenTreeDAL
                     string information = root.Attribute("information").Value;
                     if (isReadInformationOnly)
                     {
-                        tree = new GenTree(createTime, lastEditTime, treename, id, information, null, null); 
+                        tree = new GenTree(createTime, lastEditTime, treename, information, id,null, null); 
                         return true;
                     }
                     List<Person> personList = new List<Person>();
@@ -125,7 +125,7 @@ namespace GenTreeDAL
                             return false;
                         }
                     }
-                    tree = new GenTree(createTime,lastEditTime,treename,id,information,personList,relationList);
+                    tree = new GenTree(createTime,lastEditTime,treename,information,id,personList,relationList);
                     return true;
                 }
                 else

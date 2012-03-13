@@ -70,10 +70,9 @@ namespace GenTreeBE
           }
       }
 
-      public Person(int id, String personName, DateTime dateOfBorn, DateTime dateOfDeath,
-          Genders gender,  String notes,string pathToPhoto = null,int genLayer=0)
+      public Person(String personName, DateTime? dateOfBorn, DateTime? dateOfDeath,
+          Genders gender,  String notes,int id=-1,string pathToPhoto = null,int genLayer=0)
       {
-          ID = id;
           NameOfPerson = personName;
           DateOfBorn = dateOfBorn;
           DateOfDeath = dateOfDeath;
@@ -81,6 +80,10 @@ namespace GenTreeBE
           GenLayer = genLayer;
           Note = notes;
           PathToPhoto = pathToPhoto;
+          if (id == -1)
+              ID = (NameOfPerson + dateOfBorn.ToString() + gender.ToString() + Note.ToString()).GetHashCode();
+          else
+              ID = id;
       }
     }
 }

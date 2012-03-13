@@ -1,5 +1,0 @@
-D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTree\obj\x86\Debug\ResolveAssemblyReference.cache
-D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTree\bin\Debug\GenTree.exe
-D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTree\bin\Debug\GenTree.pdb
-D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTree\obj\x86\Debug\GenTree.exe
-D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTree\GenTree\obj\x86\Debug\GenTree.pdb
