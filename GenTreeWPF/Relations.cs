@@ -8,8 +8,8 @@ namespace GenTreeBE
 {
     public enum Relatives
     {
-        brother, sister, mother, father, grandmother, grandfather,
-        aunt, uncle, nephew, niece, husband, wife, NoRelative
+        brother, sister,son,daughter, mother, father, grandmother, grandfather,
+        granddaughter,grandson,aunt, uncle, nephew, niece, husband, wife, NoRelative
     }
 }
 

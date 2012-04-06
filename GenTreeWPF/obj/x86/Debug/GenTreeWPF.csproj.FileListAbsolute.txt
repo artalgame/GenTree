@@ -30,3 +30,6 @@ D:\предметы\Программирование\лабы ИНиСП\сем�
 D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTreeGit\GenTree\GenTreeWPF\bin\Debug\GenTreeWPF.exe.config
 D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTreeGit\GenTree\GenTreeWPF\obj\x86\Debug\TreeEditorWindow.baml
 D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTreeGit\GenTree\GenTreeWPF\obj\x86\Debug\TreeEditorWindow.g.cs
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTreeGit\GenTree\GenTreeWPF\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTreeGit\GenTree\GenTreeWPF\obj\x86\Debug\EditRelativesWindow.baml
+D:\предметы\Программирование\лабы ИНиСП\семестр 4\GenTreeGit\GenTree\GenTreeWPF\obj\x86\Debug\EditRelativesWindow.g.cs

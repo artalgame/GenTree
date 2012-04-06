@@ -59,6 +59,9 @@
     <Compile Include="CreateTreeWindow.xaml.cs">
       <DependentUpon>CreateTreeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditRelativesWindow.xaml.cs">
+      <DependentUpon>EditRelativesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Relations.cs" />
     <Compile Include="RelationsTable.cs" />
     <Compile Include="RelationTableToXml.cs" />
@@ -71,6 +74,10 @@
     <Compile Include="TreeProcessor.cs" />
     <Compile Include="TreeToXml.cs" />
     <Page Include="CreateTreeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditRelativesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

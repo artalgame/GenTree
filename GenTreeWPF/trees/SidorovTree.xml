@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tree name="SidorovTree" createDate="15.03.2012 8:30:43" lastEditDate="15.03.2012 8:30:43" id="-645384355" information="this is Sidorow's tree">
+  <persons>
+    <person id="356826877" name="Feodor" layer="0" gender="Male" bornDate="23.11.1999 0:00:00" deathDate="" note="father" />
+    <person id="356827009" name="Marina" layer="0" gender="Female" bornDate="09.11.2011 0:00:00" deathDate="" note="mother" />
+    <person id="233422490" name="Oleg" layer="0" gender="Female" bornDate="15.03.2012 8:30:50" deathDate="" note="sun" />
+    <person id="233422457" name="Vasiliy" layer="0" gender="Male" bornDate="15.03.2012 8:30:51" deathDate="" note="dfdf" />
+    <person id="-1433723328" name="person name" layer="0" gender="Female" bornDate="28.03.2012 0:35:35" deathDate="" note="" />
+  </persons>
+  <table />
+</tree>

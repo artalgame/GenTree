@@ -21,14 +21,14 @@ namespace GenTreeWPF
     /// </summary>
     public partial class TreeEditorWindow : Window
     {
-        private bool isDeleteButtonActive;
+        private bool isDeleteButtonActive;//for add/delete persons, use 1 button
         public TreeEditorWindow()
         {
             InitializeComponent();
             isDeleteButtonActive = false;
         }        
 
-        private void listView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+       /* private void listView1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int selectPersonIndex = PeopleListView.SelectedIndex;
             if (selectPersonIndex != -1)
@@ -39,7 +39,7 @@ namespace GenTreeWPF
                     TreeProcessor.TreeProcessorSingletone.CurrentTree.Persons.GetPersonList()[selectPersonIndex];
                 RefreshPersonEditor(TreeProcessor.TreeProcessorSingletone.CurrentPerson);
             }
-        }
+        }*/
 
         private void RefreshPersonEditor(Person person)
         {
@@ -102,7 +102,7 @@ namespace GenTreeWPF
             PeopleListView.Items.Clear();
             foreach (Person person in TreeProcessor.TreeProcessorSingletone.CurrentTree.Persons)
             {
-                PeopleListView.Items.Add(person.NameOfPerson + "   " + person.Gender.ToString());
+                PeopleListView.Items.Add(person);
             }
         }
 
@@ -129,6 +129,39 @@ namespace GenTreeWPF
         private void SaveTreeButton_Click(object sender, RoutedEventArgs e)
         {
             TreeProcessor.TreeProcessorSingletone.SaveCurrentTreeToFile();
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            SaveTreeButton_Click(this, null);
+            Application.Current.Shutdown();
+        }
+
+        private void button1_Click_1(object sender, RoutedEventArgs e)
+        {
+            SaveTreeButton_Click(null, null);
+            var wind = new MainWindow();
+            wind.Show();
+            this.Close();
+        }
+
+        private void PeopleListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int selectPersonIndex = PeopleListView.SelectedIndex;
+            if (selectPersonIndex != -1)
+            {
+                isDeleteButtonActive = true;
+                NewPersonButton.Content = "Delete person";
+                TreeProcessor.TreeProcessorSingletone.CurrentPerson =
+                    TreeProcessor.TreeProcessorSingletone.CurrentTree.Persons.GetPersonList()[selectPersonIndex];
+                RefreshPersonEditor(TreeProcessor.TreeProcessorSingletone.CurrentPerson);
+            }
+        }
+
+        private void EditRelativesButton_Click(object sender, RoutedEventArgs e)
+        {
+            var wind = new EditRelativesWindow();
+            wind.Show();
         }
     }
 }

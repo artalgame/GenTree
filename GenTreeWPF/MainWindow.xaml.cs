@@ -38,6 +38,7 @@ namespace GenTreeWPF
             if((treesInfo!=null)&&(treesInfo.Count!=0))
             {
                 CrTreesDataGrid.ItemsSource = treesInfo;
+                //CrTreesDataGrid.ItemsSource = treesInfo.Select<GenTree,string>(x=>x.Name);
                 //CrTreesDataGrid.ItemsSource = treesInfo.Select<GenTree,string>(x => x.Name);
             }
             else
@@ -92,7 +93,10 @@ namespace GenTreeWPF
             SelectedTreeLabel.Content = selTree.Information;
         }
 
-      
+        private void CrTreesDataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }  
   
 
     }

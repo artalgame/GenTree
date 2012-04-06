@@ -110,6 +110,7 @@ namespace GenTreeDAL
                             return false;
                         }
                     }
+                    PersonList.GetPersonList(personList);
                     List<RelationBetweenTwoPerson> relationList = new List<RelationBetweenTwoPerson>();
                     RelationBetweenTwoPerson relation;
                     RelationToXml readRelation = new RelationToXml();

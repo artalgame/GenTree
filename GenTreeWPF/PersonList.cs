@@ -8,12 +8,23 @@ namespace GenTreeBE
 {
     public class PersonList:IEnumerable<Person>
     {
+        private static PersonList _personList;
         public static PersonList GetPersonList(List<Person> persons = null)
         {
-            if (persons == null)
-                return new PersonList();
+            if (_personList == null)
+            {
+                if (persons == null)
+                    _personList =  new PersonList();
+                else
+                    _personList = new PersonList(persons);
+                return _personList;
+            }
             else
-                return new PersonList(persons);
+            {
+                if (persons != null)
+                    _personList._persons = persons;
+                return _personList;
+            }
         }
         private List<Person> _persons;
         public int Count

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tree name="Kozlov's Tree" createDate="28.03.2012 0:29:04" lastEditDate="28.03.2012 0:29:04" id="2138893345" information="">
+  <persons>
+    <person id="1775675980" name="1" layer="0" gender="Female" bornDate="29.03.2012 0:40:53" deathDate="" note="" />
+    <person id="1775676042" name="2" layer="0" gender="Female" bornDate="29.03.2012 0:40:55" deathDate="" note="" />
+    <person id="-1364153586" name="3" layer="0" gender="Female" bornDate="29.03.2012 0:41:21" deathDate="" note="" />
+  </persons>
+  <table>
+    <relation firstPerson="1775676042" secondPerson="1775675980" relation="daughter" />
+    <relation firstPerson="1775675980" secondPerson="1775676042" relation="mother" />
+    <relation firstPerson="-1364153586" secondPerson="1775675980" relation="father" />
+    <relation firstPerson="1775675980" secondPerson="-1364153586" relation="daughter" />
+    <relation firstPerson="-1364153586" secondPerson="1775676042" relation="grandfather" />
+    <relation firstPerson="1775676042" secondPerson="-1364153586" relation="granddaughter" />
+  </table>
+</tree>

@@ -1,0 +1,28 @@
+﻿<Window x:Class="GenTreeWPF.EditRelativesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EditRelativesWindow" Height="300" Width="300" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*" />
+            <ColumnDefinition Width="91*" />
+            <ColumnDefinition Width="158*" />
+            <ColumnDefinition Width="14*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22*" />
+            <RowDefinition Height="12*" />
+            <RowDefinition Height="227*" />
+        </Grid.RowDefinitions>
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="0,-1,0,0" Name="TitleTextBlock" Text="Relations editor" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
+        <DataGrid AutoGenerateColumns="False" Grid.ColumnSpan="2" Grid.Row="2" Height="157" HorizontalAlignment="Left" Name="RelationTableDataGrid" VerticalAlignment="Top" Width="249" Grid.Column="1" SelectionChanged="RelationTableDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Person" Binding="{Binding FirstPerson.NameOfPerson}"/>
+                <DataGridTextColumn Header="Relative" Binding="{Binding Relations}"/>
+                <DataGridTextColumn Header="Second Person" Binding="{Binding SecondPerson.NameOfPerson}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="0,177,0,0" Name="RelationComboBox" VerticalAlignment="Top" Width="120" Loaded="RelationComboBox_Loaded" />
+        <Button Content="Save Relation" Grid.Column="2" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="60,177,0,0" Name="SaveRelationButton" VerticalAlignment="Top" Width="98" Click="SaveRelationButton_Click" />
+    </Grid>
+</Window>

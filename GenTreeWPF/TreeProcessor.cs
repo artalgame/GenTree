@@ -20,7 +20,17 @@ namespace GenTreeCore
             try
             {
                 if (_currentTree.Persons.AddNewPerson(newPerson))
+                {
+                    foreach(Person person in _currentTree.Persons)
+                    {
+                        if (newPerson != person)
+                        {
+                            RelationsTable.GetTable().SetRelationBetweenPersons(newPerson, person, Relatives.NoRelative);
+                            RelationsTable.GetTable().SetRelationBetweenPersons(person, newPerson, Relatives.NoRelative);
+                        }
+                    }
                     return true;
+                }
                 else return false;
             }
             catch
@@ -115,7 +125,17 @@ namespace GenTreeCore
 
         public List<GenTree> GetTreesInfo()
         {
-            return _listOfTreeInfo;
+            try
+            {
+                _treeCatalogName = ConfigurationManager.AppSettings.GetValues("treeCatalog")[0];
+                _listOfTreeInfo = new TreeToXml().GetSavedTrees(_treeCatalogName);
+                return _listOfTreeInfo;
+            }
+            catch
+            {
+                return null;
+            }
+            
         }
 
         private TreeProcessor()

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tree name="Pertroy's tree" createDate="15.03.2012 8:25:48" lastEditDate="15.03.2012 8:25:48" id="1560251015" information="this is tree about Petroy's family">
+  <persons>
+    <person id="-424361383" name="Petrov Ivan" layer="0" gender="Male" bornDate="05.06.2012 0:00:00" deathDate="" note="son" />
+    <person id="-424361350" name="Petrov Igor" layer="0" gender="Male" bornDate="03.03.1949 0:00:00" deathDate="" note="granfather" />
+    <person id="-424361251" name="Petrova Inna" layer="0" gender="Female" bornDate="03.03.1949 0:00:00" deathDate="" note="grandmother" />
+  </persons>
+  <table />
+</tree>
