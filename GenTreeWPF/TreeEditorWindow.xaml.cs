@@ -99,10 +99,10 @@ namespace GenTreeWPF
         }
         private void RefreshListViewOfPerson()
         {
-            PeopleListView.Items.Clear();
+            PeopleDataGrid.Items.Clear();
             foreach (Person person in TreeProcessor.TreeProcessorSingletone.CurrentTree.Persons)
             {
-                PeopleListView.Items.Add(person);
+                PeopleDataGrid.Items.Add(person);
             }
         }
 
@@ -147,13 +147,13 @@ namespace GenTreeWPF
 
         private void PeopleListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int selectPersonIndex = PeopleListView.SelectedIndex;
+            int selectPersonIndex = PeopleDataGrid.SelectedIndex;
             if (selectPersonIndex != -1)
             {
                 isDeleteButtonActive = true;
                 NewPersonButton.Content = "Delete person";
                 TreeProcessor.TreeProcessorSingletone.CurrentPerson =
-                    TreeProcessor.TreeProcessorSingletone.CurrentTree.Persons.GetPersonList()[selectPersonIndex];
+                    TreeProcessor.TreeProcessorSingletone.CurrentTree.Persons.GetPersonsList()[selectPersonIndex];
                 RefreshPersonEditor(TreeProcessor.TreeProcessorSingletone.CurrentPerson);
             }
         }
@@ -162,6 +162,18 @@ namespace GenTreeWPF
         {
             var wind = new EditRelativesWindow();
             wind.Show();
+        }
+
+        private void button1_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (PeopleDataGrid.SelectedIndex != -1)
+            {
+                Person person = PersonList.GetPersonList().GetPersonsList()[PeopleDataGrid.SelectedIndex];
+                var wind = new GraphWindow();
+                PersonsGraph graph = new PersonsGraph(PersonList.GetPersonList(), RelationsTable.GetTable(),person);
+                new DrawPersonGraph(graph, wind.canvas1,(int)wind.Width/2,(int)wind.Height-100,50,50).DrawToCanvas();
+                wind.ShowDialog();
+            }
         }
     }
 }

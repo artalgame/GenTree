@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tree name="Korolchuk's tree" createDate="14.04.2012 20:20:06" lastEditDate="14.04.2012 20:20:06" id="1781011334" information="">
+  <persons>
+    <person id="-638223605" name="Iryna" layer="0" gender="Female" bornDate="14.04.2012 20:20:11" deathDate="" note="" />
+    <person id="-629572853" name="Vladimir" layer="0" gender="Male" bornDate="14.04.2012 20:20:15" deathDate="" note="" />
+    <person id="-640124149" name="Artem" layer="0" gender="Male" bornDate="14.04.2012 20:20:16" deathDate="" note="" />
+    <person id="624972221" name="Lusia" layer="0" gender="Female" bornDate="16.04.2012 10:42:23" deathDate="" note="" />
+    <person id="-394692039" name="Alik" layer="0" gender="Male" bornDate="16.04.2012 10:49:52" deathDate="" note="" />
+    <person id="1540276193" name="Zina" layer="0" gender="Female" bornDate="16.04.2012 10:50:06" deathDate="" note="" />
+    <person id="-1496053916" name="Valia" layer="0" gender="Female" bornDate="16.04.2012 16:50:48" deathDate="" note="" />
+    <person id="-1493891228" name="Vladimir" layer="0" gender="Male" bornDate="16.04.2012 16:50:49" deathDate="" note="" />
+    <person id="-1478752445" name="person name" layer="0" gender="Female" bornDate="16.04.2012 16:50:50" deathDate="" note="" />
+    <person id="-1474689213" name="person name" layer="0" gender="Female" bornDate="16.04.2012 16:50:52" deathDate="" note="" />
+  </persons>
+  <table>
+    <relation firstPerson="-629572853" secondPerson="-638223605" relation="husband" />
+    <relation firstPerson="-638223605" secondPerson="-629572853" relation="wife" />
+    <relation firstPerson="-640124149" secondPerson="-638223605" relation="son" />
+    <relation firstPerson="-638223605" secondPerson="-640124149" relation="mother" />
+    <relation firstPerson="-640124149" secondPerson="-629572853" relation="son" />
+    <relation firstPerson="-629572853" secondPerson="-640124149" relation="father" />
+    <relation firstPerson="624972221" secondPerson="-638223605" relation="NoRelative" />
+    <relation firstPerson="-638223605" secondPerson="624972221" relation="NoRelative" />
+    <relation firstPerson="624972221" secondPerson="-629572853" relation="mother" />
+    <relation firstPerson="-629572853" secondPerson="624972221" relation="son" />
+    <relation firstPerson="624972221" secondPerson="-640124149" relation="grandmother" />
+    <relation firstPerson="-640124149" secondPerson="624972221" relation="grandson" />
+    <relation firstPerson="-394692039" secondPerson="-638223605" relation="NoRelative" />
+    <relation firstPerson="-638223605" secondPerson="-394692039" relation="NoRelative" />
+    <relation firstPerson="-394692039" secondPerson="-629572853" relation="father" />
+    <relation firstPerson="-629572853" secondPerson="-394692039" relation="son" />
+    <relation firstPerson="-394692039" secondPerson="-640124149" relation="grandfather" />
+    <relation firstPerson="-640124149" secondPerson="-394692039" relation="grandson" />
+    <relation firstPerson="-394692039" secondPerson="624972221" relation="husband" />
+    <relation firstPerson="624972221" secondPerson="-394692039" relation="wife" />
+    <relation firstPerson="1540276193" secondPerson="-638223605" relation="mother" />
+    <relation firstPerson="-638223605" secondPerson="1540276193" relation="daughter" />
+    <relation firstPerson="1540276193" secondPerson="-629572853" relation="NoRelative" />
+    <relation firstPerson="-629572853" secondPerson="1540276193" relation="NoRelative" />
+    <relation firstPerson="1540276193" secondPerson="-640124149" relation="grandmother" />
+    <relation firstPerson="-640124149" secondPerson="1540276193" relation="grandson" />
+    <relation firstPerson="1540276193" secondPerson="624972221" relation="NoRelative" />
+    <relation firstPerson="624972221" secondPerson="1540276193" relation="NoRelative" />
+    <relation firstPerson="1540276193" secondPerson="-394692039" relation="NoRelative" />
+    <relation firstPerson="-394692039" secondPerson="1540276193" relation="NoRelative" />
+    <relation firstPerson="-1496053916" secondPerson="-638223605" relation="NoRelative" />
+    <relation firstPerson="-638223605" secondPerson="-1496053916" relation="NoRelative" />
+    <relation firstPerson="-1496053916" secondPerson="-629572853" relation="NoRelative" />
+    <relation firstPerson="-629572853" secondPerson="-1496053916" relation="NoRelative" />
+    <relation firstPerson="-1496053916" secondPerson="-640124149" relation="NoRelative" />
+    <relation firstPerson="-640124149" secondPerson="-1496053916" relation="NoRelative" />
+    <relation firstPerson="-1496053916" secondPerson="624972221" relation="mother" />
+    <relation firstPerson="624972221" secondPerson="-1496053916" relation="daughter" />
+    <relation firstPerson="-1496053916" secondPerson="-394692039" relation="NoRelative" />
+    <relation firstPerson="-394692039" secondPerson="-1496053916" relation="NoRelative" />
+    <relation firstPerson="-1496053916" secondPerson="1540276193" relation="NoRelative" />
+    <relation firstPerson="1540276193" secondPerson="-1496053916" relation="NoRelative" />
+    <relation firstPerson="-1493891228" secondPerson="-638223605" relation="NoRelative" />
+    <relation firstPerson="-638223605" secondPerson="-1493891228" relation="NoRelative" />
+    <relation firstPerson="-1493891228" secondPerson="-629572853" relation="NoRelative" />
+    <relation firstPerson="-629572853" secondPerson="-1493891228" relation="NoRelative" />
+    <relation firstPerson="-1493891228" secondPerson="-640124149" relation="NoRelative" />
+    <relation firstPerson="-640124149" secondPerson="-1493891228" relation="NoRelative" />
+    <relation firstPerson="-1493891228" secondPerson="624972221" relation="father" />
+    <relation firstPerson="624972221" secondPerson="-1493891228" relation="daughter" />
+    <relation firstPerson="-1493891228" secondPerson="-394692039" relation="NoRelative" />
+    <relation firstPerson="-394692039" secondPerson="-1493891228" relation="NoRelative" />
+    <relation firstPerson="-1493891228" secondPerson="1540276193" relation="NoRelative" />
+    <relation firstPerson="1540276193" secondPerson="-1493891228" relation="NoRelative" />
+    <relation firstPerson="-1493891228" secondPerson="-1496053916" relation="NoRelative" />
+    <relation firstPerson="-1496053916" secondPerson="-1493891228" relation="NoRelative" />
+    <relation firstPerson="-1478752445" secondPerson="-638223605" relation="NoRelative" />
+    <relation firstPerson="-638223605" secondPerson="-1478752445" relation="NoRelative" />
+    <relation firstPerson="-1478752445" secondPerson="-629572853" relation="NoRelative" />
+    <relation firstPerson="-629572853" secondPerson="-1478752445" relation="NoRelative" />
+    <relation firstPerson="-1478752445" secondPerson="-640124149" relation="NoRelative" />
+    <relation firstPerson="-640124149" secondPerson="-1478752445" relation="NoRelative" />
+    <relation firstPerson="-1478752445" secondPerson="624972221" relation="NoRelative" />
+    <relation firstPerson="624972221" secondPerson="-1478752445" relation="NoRelative" />
+    <relation firstPerson="-1478752445" secondPerson="-394692039" relation="NoRelative" />
+    <relation firstPerson="-394692039" secondPerson="-1478752445" relation="NoRelative" />
+    <relation firstPerson="-1478752445" secondPerson="1540276193" relation="NoRelative" />
+    <relation firstPerson="1540276193" secondPerson="-1478752445" relation="NoRelative" />
+    <relation firstPerson="-1478752445" secondPerson="-1496053916" relation="NoRelative" />
+    <relation firstPerson="-1496053916" secondPerson="-1478752445" relation="NoRelative" />
+    <relation firstPerson="-1478752445" secondPerson="-1493891228" relation="NoRelative" />
+    <relation firstPerson="-1493891228" secondPerson="-1478752445" relation="NoRelative" />
+    <relation firstPerson="-1474689213" secondPerson="-638223605" relation="NoRelative" />
+    <relation firstPerson="-638223605" secondPerson="-1474689213" relation="NoRelative" />
+    <relation firstPerson="-1474689213" secondPerson="-629572853" relation="NoRelative" />
+    <relation firstPerson="-629572853" secondPerson="-1474689213" relation="NoRelative" />
+    <relation firstPerson="-1474689213" secondPerson="-640124149" relation="NoRelative" />
+    <relation firstPerson="-640124149" secondPerson="-1474689213" relation="NoRelative" />
+    <relation firstPerson="-1474689213" secondPerson="624972221" relation="NoRelative" />
+    <relation firstPerson="624972221" secondPerson="-1474689213" relation="NoRelative" />
+    <relation firstPerson="-1474689213" secondPerson="-394692039" relation="NoRelative" />
+    <relation firstPerson="-394692039" secondPerson="-1474689213" relation="NoRelative" />
+    <relation firstPerson="-1474689213" secondPerson="1540276193" relation="NoRelative" />
+    <relation firstPerson="1540276193" secondPerson="-1474689213" relation="NoRelative" />
+    <relation firstPerson="-1474689213" secondPerson="-1496053916" relation="NoRelative" />
+    <relation firstPerson="-1496053916" secondPerson="-1474689213" relation="NoRelative" />
+    <relation firstPerson="-1474689213" secondPerson="-1493891228" relation="NoRelative" />
+    <relation firstPerson="-1493891228" secondPerson="-1474689213" relation="NoRelative" />
+    <relation firstPerson="-1474689213" secondPerson="-1478752445" relation="NoRelative" />
+    <relation firstPerson="-1478752445" secondPerson="-1474689213" relation="NoRelative" />
+  </table>
+</tree>

@@ -38,7 +38,7 @@ namespace GenTreeDAL
                 root.SetAttributeValue("information", tree.Information);
 
                 XElement xPersons = new XElement("persons");
-                List<Person> persons = tree.Persons.GetPersonList();
+                List<Person> persons = tree.Persons.GetPersonsList();
                 PersonToXml personToXml = new PersonToXml();
                 XElement xPerson;
                 foreach (Person person in persons)

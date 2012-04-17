@@ -59,9 +59,16 @@
     <Compile Include="CreateTreeWindow.xaml.cs">
       <DependentUpon>CreateTreeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DrawPersonGraph.cs" />
     <Compile Include="EditRelativesWindow.xaml.cs">
       <DependentUpon>EditRelativesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GraphWindow.xaml.cs">
+      <DependentUpon>GraphWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonAsFigura.cs" />
+    <Compile Include="PersonAsGraphElement.cs" />
+    <Compile Include="PersonsGraph.cs" />
     <Compile Include="Relations.cs" />
     <Compile Include="RelationsTable.cs" />
     <Compile Include="RelationTableToXml.cs" />
@@ -78,6 +85,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditRelativesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GraphWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,7 +140,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Chrysanthemum.jpg" />
+    <Resource Include="Images\help_button.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

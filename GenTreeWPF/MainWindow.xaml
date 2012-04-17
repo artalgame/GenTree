@@ -3,49 +3,55 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:genTrBE="clr-namespace:GenTreeBE"
-        Title="MainWindow" Name="Main_Window" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Height="422" Width="577" Loaded="Main_Window_Loaded">
-    <Window.Background>
+        Title="MainWindow" Name="Main_Window" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Loaded="Main_Window_Loaded" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" SizeToContent="Manual" d:DesignHeight="422" d:DesignWidth="577" Topmost="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ForceCursor="False" Cursor="Hand" Width="700" Height="400">
+     <Window.Resources>       
+         
+
+    </Window.Resources>
+    <Window.Background> 
+       
         <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
             <GradientStop Color="#FF672FE5" Offset="0" />
             <GradientStop Color="#5A26E5E5" Offset="1" />
             <GradientStop Color="#D7D2FCD5" Offset="0.516" />
         </LinearGradientBrush>
     </Window.Background>
-    <Window.Resources>
-    </Window.Resources>
-    <Grid  Height="394" Name="grid1" Width="565" DataContext="{Binding}" HorizontalAlignment="Left" VerticalAlignment="Top">
+   
+    <Grid  Height="Auto" Name="grid1" Width="Auto" DataContext="{Binding}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="75*" />
-            <RowDefinition Height="33*" />
-            <RowDefinition Height="21*" />
-            <RowDefinition Height="50*" />
+            <RowDefinition Height="69*" />
             <RowDefinition Height="0*" />
-            <RowDefinition Height="168*" />
-            <RowDefinition Height="47" />
+            <RowDefinition Height="49*" />
+            <RowDefinition Height="45*" />
+            <RowDefinition Height="0*" />
+            <RowDefinition Height="80*" />
+            <RowDefinition Height="24*" />
+            <RowDefinition Height="49*" />
+            <RowDefinition Height="45*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="180" />
-            <ColumnDefinition Width="0" />
-            <ColumnDefinition Width="49" />
+            <ColumnDefinition Width="192*" />
+            <ColumnDefinition Width="69*" />
             <ColumnDefinition Width="0*" />
-            <ColumnDefinition Width="185*" />
+            <ColumnDefinition Width="18*" />
             <ColumnDefinition Width="53*" />
+            <ColumnDefinition Width="0*" />
+            <ColumnDefinition Width="269*" />
+            <ColumnDefinition Width="61*" />
+            <ColumnDefinition Width="15*" />
         </Grid.ColumnDefinitions>
-        <Label Content="GenTree" Height="72" HorizontalAlignment="Left" Margin="0,15,0,0" Name="ProductNameLabel" VerticalAlignment="Top" Width="180" FontWeight="Bold" FontSize="25" FontFamily="Rod" FontStretch="Condensed" FontStyle="Normal" Grid.RowSpan="3" Target="{Binding}">
+        <Label Content="GenTree" Height="58" HorizontalAlignment="Stretch" Margin="24,15,24,0" Name="ProductNameLabel" VerticalAlignment="Stretch" Width="214" FontWeight="Bold" FontSize="25" FontFamily="Rod" FontStretch="Condensed" FontStyle="Normal" Target="{Binding}" Grid.ColumnSpan="2" Grid.RowSpan="3">
             <Label.Background>
                 <SolidColorBrush />
             </Label.Background>
         </Label>
-        <Button Content="Help" Grid.Column="5" Height="38" Name="HelpButton" VerticalAlignment="Top" Margin="0,15,12,0" Click="button1_Click" />
-        <Label Content="Label" Height="33" HorizontalAlignment="Left" Name="VersionLabel" VerticalAlignment="Top" Width="180" Grid.Row="1" Target="{Binding}" />
-        <Button Content="Exit" Grid.Column="5" Grid.Row="5" Height="35" HorizontalAlignment="Left" Margin="0,121,0,0" Name="ExitButton" VerticalAlignment="Top" Width="41" IsCancel="True" Click="button2_Click" />
-        <Button Content="Select this tree" Grid.Column="4" Grid.Row="5" Height="29" HorizontalAlignment="Left" Margin="14,124,0,0" Name="SelectTreeButton" VerticalAlignment="Top" Width="142" Click="SelectTreeButton_Click" />
-        <Label Content="List of Created Tree" Grid.Column="4" Grid.Row="1" Height="23" HorizontalAlignment="Left" Name="ListOfCrTreeLabel" VerticalAlignment="Bottom" Width="185" />
-        <Label Content="No selected tree" Grid.Column="4" Grid.Row="5" Height="27" HorizontalAlignment="Left" Margin="0,91,0,0" Name="SelectedTreeLabel" VerticalAlignment="Top" Width="261" />
-        <Button Content="Create new TREE" Grid.Row="5" Height="23" 
-                HorizontalAlignment="Left" Margin="28,130,0,0" 
-                Name="CreateTreeButton" VerticalAlignment="Top" Width="125" Click="CreateTreeButton_Click">
+        <Button Style="{StaticResource helpStyle}" Grid.Column="7" Name="HelpButton" VerticalAlignment="Stretch" Margin="5,12,0,0" Click="button1_Click" Height="40" ClickMode="Release" />
+        <Button Content="Exit" Grid.Column="7" Grid.Row="7" Height="Auto" HorizontalAlignment="Stretch" Margin="4,9,8,13" Name="ExitButton" VerticalAlignment="Stretch" Width="Auto" IsCancel="True" Click="button2_Click" ClickMode="Release" />
+        <Button Content="Select this tree" Grid.Column="6" Grid.Row="7" Height="Auto" HorizontalAlignment="Stretch" Margin="26,10,52,14" Name="SelectTreeButton" VerticalAlignment="Stretch" Width="Auto" Click="SelectTreeButton_Click" />
+        <Label Content="List of Created Tree" Grid.Column="6" Height="23" HorizontalAlignment="Left" Name="ListOfCrTreeLabel" VerticalAlignment="Bottom" Width="185" Margin="16,0,0,10" />
+        <Label Content="No selected tree" Grid.Column="6" Grid.Row="6" HorizontalAlignment="Stretch" Margin="0,0,0,48" Name="SelectedTreeLabel" VerticalAlignment="Stretch" Grid.RowSpan="2" />
+        <Button Content="Create new TREE" Grid.Row="7" HorizontalAlignment="Stretch" Margin="68,10,68,12" 
+                Name="CreateTreeButton" VerticalAlignment="Stretch" Width="125" Click="CreateTreeButton_Click" Grid.ColumnSpan="2">
             <Button.ToolTip>
                 <TextBlock>
                     Press to create new Family Tree
@@ -55,15 +61,15 @@
         <Label Grid.Row="3" Height="113" HorizontalAlignment="Left" Margin="-6,0,0,0" Name="label5" VerticalAlignment="Top" Width="146" BorderBrush="{x:Null}" Grid.RowSpan="3">
             
         </Label>
-        <Border BorderThickness="5" Height="184" HorizontalAlignment="Left" Margin="6,0,0,0" Name="border1" VerticalAlignment="Top" Width="174" OpacityMask="Black" CornerRadius="10" Grid.Row="2" Grid.RowSpan="4">
+        <Border BorderThickness="5" HorizontalAlignment="Stretch" Margin="5,0,68,5" Name="border1" VerticalAlignment="Stretch" OpacityMask="Black" CornerRadius="10" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="2">
                 <Border.Background>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF6BC759" Offset="0" />
                         <GradientStop Color="#FF36CE1A" Offset="1" />
                     </LinearGradientBrush>
                 </Border.Background>
-                <TextBlock Grid.Row="5" Height="173" HorizontalAlignment="Left" Margin="0" Name="Welcome" 
-                           Text="Welcome to GenTree. Only few easy steps and our family tree will created. If you have created tree you can open and edit it(select it on table on right ), else - press Create new TREE below" VerticalAlignment="Top" Width="161" TextWrapping="WrapWithOverflow" FlowDirection="LeftToRight" Foreground="#FF461FC7" FontFamily="Andy" FontSize="16"><TextBlock.TextEffects><TextEffect /></TextBlock.TextEffects><TextBlock.Background><SolidColorBrush /></TextBlock.Background></TextBlock>
+                <TextBlock Grid.Row="5" Height="Auto" HorizontalAlignment="Left" Margin="0" Name="Welcome" 
+                           Text="Welcome to GenTree. Only few easy steps and our family tree will created. If you have created tree you can open and edit it(select it on table on right ), else - press Create new TREE below" VerticalAlignment="Top" Width="Auto" TextWrapping="WrapWithOverflow" FlowDirection="LeftToRight" Foreground="#FF461FC7" FontFamily="Andy" FontSize="16" Padding="0" TextTrimming="None" FontStretch="ExtraExpanded"><TextBlock.TextEffects><TextEffect /></TextBlock.TextEffects><TextBlock.Background><SolidColorBrush /></TextBlock.Background></TextBlock>
                 <Border.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                         <GradientStop Color="#FF69C159" Offset="0" />
@@ -71,24 +77,33 @@
                     </LinearGradientBrush>
                 </Border.BorderBrush>
             </Border>
-        <ListView Grid.Column="4" Grid.Row="2" Grid.RowSpan="4" 
-                  Height="165" HorizontalAlignment="Left" 
-                  Name="CrTreesListView" VerticalAlignment="Top" Width="261" SelectionChanged="CrTreesListView_SelectionChanged" IsEnabled="True" Visibility="Collapsed">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="name" Width="90"/>
-                    <GridViewColumn Header="Created" Width="80"/>
-                    <GridViewColumn Header="Last Edited" Width="80"/>
-                </GridView>
-            </ListView.View>
-           
-        </ListView>
-        <DataGrid AutoGenerateColumns="false" Grid.Column="4" Grid.RowSpan="5" Height="198" HorizontalAlignment="Left" Name="CrTreesDataGrid" VerticalAlignment="Top" Width="302" SelectionChanged="CrTreesDataGrid_SelectionChanged" Grid.Row="1" ItemsSource="{Binding}" SelectionMode="Single" SelectionUnit="FullRow" AreRowDetailsFrozen="True" IsReadOnly="True" CanUserSortColumns="False" Loaded="CrTreesDataGrid_Loaded" Grid.ColumnSpan="2">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="LastEdit" Binding="{Binding DateOfLastEdit}"/>
-                <DataGridTextColumn Header="Created" Binding="{Binding DateOfCreate}"/>
-            </DataGrid.Columns>
+       
+        <DataGrid AlternationCount="2"  AutoGenerateColumns="False" Grid.Column="4" Grid.RowSpan="4" HorizontalAlignment="Stretch" Name="CrTreesDataGrid" VerticalAlignment="Stretch" SelectionChanged="CrTreesDataGrid_SelectionChanged" ItemsSource="{Binding}" SelectionMode="Single" SelectionUnit="FullRow" AreRowDetailsFrozen="True" IsReadOnly="True" CanUserSortColumns="False" Loaded="CrTreesDataGrid_Loaded" Grid.ColumnSpan="4" Margin="18,5,0,0" Grid.Row="2" IsSynchronizedWithCurrentItem="{x:Null}" DataContext="{Binding}">
+            
         </DataGrid>
+        <ListBox Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="4" HorizontalAlignment="Stretch" Margin="1,0,0,0" Name="listBox1" VerticalAlignment="Stretch" Grid.Row="2" MinWidth="200" SelectionMode="Single" SelectionChanged="listBox1_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type genTrBE:GenTree}">
+                    <Border Name="Base" BorderBrush="Blue" BorderThickness="1" Background="Khaki" CornerRadius="3" Padding=" 1" Margin="3" Width="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ListBox}}}" Height="Auto">
+                        <Grid  Height="Auto" Width="Auto" DataContext="{Binding}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="20" FontWeight="Medium" Text="Name:" Grid.Column="0" Grid.Row="0" Grid.RowSpan="1" HorizontalAlignment="Stretch"/>
+                            <TextBlock FontSize="20" FontWeight="Medium" Text="{Binding Name}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Stretch"/>
+                            <TextBlock FontSize="9" FontWeight="Medium" Text="Create:" Grid.Column="0" Grid.Row="1" Grid.RowSpan="1" HorizontalAlignment="Stretch"/>
+                            <TextBlock FontSize="9" FontWeight="Medium" Text="{Binding DateOfCreate}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="1" HorizontalAlignment="Stretch"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
+
+    

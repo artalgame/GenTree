@@ -26,7 +26,10 @@ namespace GenTreeBE
         {
             return _relationsList;
         }
-
+        public  List<RelationBetweenTwoPerson> GetPersonRelation(Person person,bool onlyWherePersonIsFirst = true)
+        {
+            return (_relationsList.Where(x => x.FirstPerson.ID == person.ID)).ToList();
+        }
         public static RelationsTable GetTable(List<RelationBetweenTwoPerson> relationList = null)
         {
             if (_relationsTable == null)
@@ -83,7 +86,7 @@ namespace GenTreeBE
 
                     RelationBetweenTwoPerson oppositeRelation = _relationsList.Where<RelationBetweenTwoPerson>(x => (x.FirstPerson == secondPerson)
                      && (x.SecondPerson == firstPerson)).Single<RelationBetweenTwoPerson>();
-                    oppositeRelation.Relations = GetOpositeRelative(relation,firstPerson);
+                    oppositeRelation.Relations = GetOpositeRelative(relation,secondPerson);
                     return true;
                 }
             }
@@ -125,7 +128,7 @@ namespace GenTreeBE
                     return (secondPerson.Gender == Genders.Male) ? Relatives.son : Relatives.daughter;
                     break;
                 case Relatives.mother:
-                    return (secondPerson.Gender == Genders.Male) ? Relatives.father : Relatives.mother;
+                    return (secondPerson.Gender == Genders.Male) ? Relatives.son : Relatives.daughter;
                     break;
                 case Relatives.granddaughter:
                     return (secondPerson.Gender == Genders.Male) ? Relatives.grandfather : Relatives.grandmother;

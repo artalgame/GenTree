@@ -33,11 +33,12 @@ namespace GenTreeWPF
 
         private void Main_Window_Loaded(object sender, RoutedEventArgs e)
         {
-            VersionLabel.Content = "current version 0.1";
+          
             List<GenTree> treesInfo = TreeProcessor.TreeProcessorSingletone.GetTreesInfo();
             if((treesInfo!=null)&&(treesInfo.Count!=0))
             {
                 CrTreesDataGrid.ItemsSource = treesInfo;
+                listBox1.ItemsSource = treesInfo;
                 //CrTreesDataGrid.ItemsSource = treesInfo.Select<GenTree,string>(x=>x.Name);
                 //CrTreesDataGrid.ItemsSource = treesInfo.Select<GenTree,string>(x => x.Name);
             }
@@ -60,19 +61,19 @@ namespace GenTreeWPF
             
         }
 
-        private void CrTreesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+       /* private void CrTreesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             GenTree selTree;
             TreeProcessor.TreeProcessorSingletone.GetTreeInfoFromIndex(
                 CrTreesListView.SelectedIndex, out selTree);
             SelectedTreeLabel.Content = selTree.Information;
         }
-
+        */
         private void SelectTreeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (CrTreesDataGrid.SelectedIndex != -1)
+            if (listBox1.SelectedIndex != -1)
             {
-                if (TreeProcessor.TreeProcessorSingletone.SetCurrentTree(CrTreesDataGrid.SelectedIndex))
+                if (TreeProcessor.TreeProcessorSingletone.SetCurrentTree(listBox1.SelectedIndex))
                 {
                     var wind = new TreeEditorWindow();
                     wind.Show();
@@ -96,6 +97,14 @@ namespace GenTreeWPF
         private void CrTreesDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GenTree selTree;
+            TreeProcessor.TreeProcessorSingletone.GetTreeInfoFromIndex(
+            listBox1.SelectedIndex, out selTree);
+            SelectedTreeLabel.Content = selTree.Information;
         }  
   
 

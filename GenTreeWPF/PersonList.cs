@@ -35,6 +35,20 @@ namespace GenTreeBE
             }
             private set { }
         }
+        public int GetPersonIndexInTable(Person person)
+        {
+            try
+            {
+                return _persons.FindLastIndex(x => (x.ID == person.ID));
+
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+
+        }
+
         private PersonList()
         {
             _persons = new List<Person>();
@@ -43,7 +57,7 @@ namespace GenTreeBE
         {
             _persons = personList;
         }
-        public List<Person> GetPersonList()
+        public List<Person> GetPersonsList()
         {
             return _persons;
         }

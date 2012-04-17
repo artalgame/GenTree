@@ -1,8 +1,60 @@
 ﻿<Application x:Class="GenTreeWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:GenTreeBE"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate x:Key="GenTreeTemplate" DataType="{x:Type local:GenTree}">
+            <Border Name="Base" BorderBrush="Blue" BorderThickness="1" Background="Khaki" CornerRadius="3" Padding=" 10" Margin="3" Width="100" Height="30">
+                <TextBlock FontSize="20" FontWeight="Medium" Text="Name:"/>
+                
+            </Border>
+        </DataTemplate>
+        
+        <Style x:Key="helpStyle" TargetType="Button">
+            <Style.Resources>
+                <ControlTemplate x:Key ="helpButtonTemplate" TargetType="Button">
+                    <Border Name ="helpBorder" BorderBrush="Blue" BorderThickness ="3" Background="Red" CornerRadius="5">
+                        <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="helpBorder" Property="BorderThickness" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="ClickMode" Value="Hover">
+                            <Setter TargetName="helpBorder" Property="Background" Value="DarkRed"/>
+                            <Setter TargetName="helpBorder" Property="CornerRadius" Value ="10"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+              </Style.Resources>
+                <Setter Property="Height" Value="45"/>
+                <Setter Property="Width" Value="45"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="Content">
+                    <Setter.Value>
+                        <Image Source="images\help_button.jpg" Width="30" Height="30"/>
+                    </Setter.Value>
+                </Setter>
+                        <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="5" Opacity="35" Color="CornflowerBlue" Direction="300" ShadowDepth="Infinity"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template" Value="{StaticResource helpButtonTemplate}"/>
+            </Style>
+        
+        <!--<Style TargetType="ItemsControl" x:Key="dataGridStyle">
+            <Setter Property="Background" Value="GreenYellow"/>
+            <Setter Property="Foreground" Value="DeepSkyBlue"/>
+            <Style.Triggers>
+                <Trigger Property ="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="DeepSkyBlue"/>
+                    <Setter Property="Foreground" Value="GreenYellow"/>
+                </Trigger>        
+            </Style.Triggers>
+        </Style>-->
+        
     </Application.Resources>
 </Application>
