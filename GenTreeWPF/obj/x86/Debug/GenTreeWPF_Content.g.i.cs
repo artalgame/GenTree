@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/help_button.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("gentrees.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("gentrees_log.ldf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("trees.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("trees_log.ldf")]
 
 

@@ -36,33 +36,83 @@ namespace GenTreeWPF
        {
            curCanvas.Children.Clear();
        }
-       private void DrawElement(int x, int y,int offsetX,int offsetY,int offsetBetweenLayers,Genders gender)
+       private void DrawElement(int x, int y,int offsetX,int offsetY,int offsetBetweenLayers,Person person)
        {
-           if (gender == Genders.Male)
+           if (person.Gender == Genders.Male)
            {
                if (offsetBetweenLayers != 0)
                {
                    curCanvas.Children.Add(new Rectangle()
                                               {
-                                                  Width = offsetBetweenLayers*CellWidth,
+                                                  Width = offsetBetweenLayers * CellWidth,
                                                   Height = lineThinkness,
                                                   Fill = new LinearGradientBrush(Colors.Blue, Colors.Red, 30)
-                                               });
-                   Canvas.SetTop(curCanvas.Children[curCanvas.Children.Count - 1], Y - CellHeight * offsetY+FigureHeight/2);
-                   Canvas.SetLeft(curCanvas.Children[curCanvas.Children.Count - 1], X - CellWidth * (offsetX+offsetBetweenLayers)+FigureWidth/2);
+                                              });
+                   Canvas.SetTop(curCanvas.Children[curCanvas.Children.Count - 1], Y - CellHeight * offsetY + FigureHeight / 2);
+                   Canvas.SetLeft(curCanvas.Children[curCanvas.Children.Count - 1], X - CellWidth * (offsetX + offsetBetweenLayers) + FigureWidth / 2);
+
+                   curCanvas.Children.Add(new Rectangle()
+                   {
+                       Width = lineThinkness,
+                       Height = 2 * CellHeight - FigureHeight / 2,
+                       Fill = new LinearGradientBrush(Colors.Blue, Colors.Red, 30)
+                   });
+                   Canvas.SetTop(curCanvas.Children[curCanvas.Children.Count - 1], Y - CellHeight * offsetY + FigureHeight / 2);
+                   Canvas.SetLeft(curCanvas.Children[curCanvas.Children.Count - 1], X - CellWidth * (offsetX + offsetBetweenLayers) + FigureWidth / 2 - lineThinkness / 2);
+
 
                }
-               curCanvas.Children.Add(new Rectangle()
-               {
-                   Width = FigureWidth,
-                   Height = FigureHeight,
-                   Fill =
-                       new LinearGradientBrush(Colors.Blue, Colors.Red, 30)
-               });
-               
-               Canvas.SetTop(curCanvas.Children[curCanvas.Children.Count - 1], Y - CellHeight*offsetY);
-               Canvas.SetLeft(curCanvas.Children[curCanvas.Children.Count - 1], X - CellWidth*offsetX);
-               
+                   curCanvas.Children.Add(new Rectangle()
+                                              {
+                                                  Width = FigureWidth,
+                                                  Height = FigureHeight,
+                                                  Fill =
+                                                      new LinearGradientBrush(Colors.Blue, Colors.Red, 30)
+                                              });
+
+                   Canvas.SetTop(curCanvas.Children[curCanvas.Children.Count - 1], Y - CellHeight*offsetY);
+                   Canvas.SetLeft(curCanvas.Children[curCanvas.Children.Count - 1], X - CellWidth*offsetX);
+                   curCanvas.Children.Add(new TextBlock()
+                                              {
+                                                  Width = FigureWidth*3,
+                                                  Height = FigureHeight,
+                                                  Text = person.NameOfPerson,
+                                                  TextWrapping = TextWrapping.WrapWithOverflow
+                                              });
+
+                   Canvas.SetTop(curCanvas.Children[curCanvas.Children.Count - 1], Y - CellHeight*offsetY + FigureHeight);
+                   Canvas.SetLeft(curCanvas.Children[curCanvas.Children.Count - 1], X - CellWidth*offsetX - FigureWidth);
+
+                   
+                   curCanvas.Children.Add(new TextBlock()
+                                              {
+                                                  Width = FigureWidth*3,
+                                                  Height = FigureHeight*2,
+                                                  TextWrapping = TextWrapping.WrapWithOverflow
+                                              });
+                   try
+                   {
+                       if (person.DateOfBorn != null)
+                       {
+                           ((TextBlock) curCanvas.Children[curCanvas.Children.Count - 1]).Text =
+                               person.DateOfBorn.Value.ToShortDateString();
+                       }
+                       if (person.DateOfDeath != null)
+                       {
+                           ((TextBlock) curCanvas.Children[curCanvas.Children.Count - 1]).Text =
+                               ((TextBlock) curCanvas.Children[curCanvas.Children.Count - 1]).Text + "-\n" +
+                               person.DateOfDeath.Value.ToShortDateString();
+                       }
+                       Canvas.SetTop(curCanvas.Children[curCanvas.Children.Count - 1],
+                                     Y - CellHeight*offsetY + FigureHeight + FigureHeight/2);
+                       Canvas.SetLeft(curCanvas.Children[curCanvas.Children.Count - 1],
+                                      X - CellWidth*offsetX - FigureWidth);
+
+                   }
+                   catch (Exception)
+                   {
+
+                   }
            }
            else
            {
@@ -96,6 +146,44 @@ namespace GenTreeWPF
                });
                Canvas.SetTop(curCanvas.Children[curCanvas.Children.Count - 1], Y - CellHeight * offsetY);
                Canvas.SetLeft(curCanvas.Children[curCanvas.Children.Count - 1], X - CellWidth * offsetX);
+               curCanvas.Children.Add(new TextBlock()
+               {
+                   Width = FigureWidth * 3,
+                   Height = FigureHeight,
+                   Text = person.NameOfPerson,
+                   TextWrapping = TextWrapping.WrapWithOverflow
+               });
+
+               Canvas.SetTop(curCanvas.Children[curCanvas.Children.Count - 1], Y - CellHeight * offsetY + FigureHeight);
+               Canvas.SetLeft(curCanvas.Children[curCanvas.Children.Count - 1], X - CellWidth * offsetX - FigureWidth);
+
+               curCanvas.Children.Add(new TextBlock()
+               {
+                   Width = FigureWidth * 4,
+                   Height = FigureHeight,
+                   TextWrapping = TextWrapping.WrapWithOverflow
+               });
+               try
+               {
+                   if (person.DateOfBorn != null)
+                   {
+                       ((TextBlock)curCanvas.Children[curCanvas.Children.Count - 1]).Text =
+                           person.DateOfBorn.Value.ToShortDateString();
+                   }
+                   if (person.DateOfDeath != null)
+                   {
+                       ((TextBlock)curCanvas.Children[curCanvas.Children.Count - 1]).Text =
+                           ((TextBlock)curCanvas.Children[curCanvas.Children.Count - 1]).Text + "-\n" +
+                           person.DateOfDeath.Value.ToShortDateString();
+                   }
+                   Canvas.SetTop(curCanvas.Children[curCanvas.Children.Count - 1], Y - CellHeight * offsetY + FigureHeight + FigureHeight / 2);
+                   Canvas.SetLeft(curCanvas.Children[curCanvas.Children.Count - 1], X - CellWidth * offsetX - FigureWidth);
+
+               }
+                   catch(Exception)
+                   {
+                       
+                   }
            }
        }
 
@@ -113,25 +201,30 @@ namespace GenTreeWPF
            int offsetBetweenLayers = 0;
            foreach (var graphElement in PersonsGraph)
            {
-               if (graphElement != null)
+               if (i != 0)
                {
-                   int nLayer = (int)System.Math.Log(i, 2);
-                   if(nLayer==0)
+                   int nLayer = (int) System.Math.Log(i, 2);
+                   if ((Math.Abs(System.Math.Pow(2d, (double) nLayer) - ((double) i)) < 1)&&(i!=1)) //go to on to new layer
                    {
-                       DrawElement(X,Y,0,0,0,graphElement.Gender);
+                       offsetBetweenLayers = (int) Math.Pow(2, cLayer - nLayer + 1);
+                       horizontalCellOffset += offsetBetweenLayers;
+                       verticalCellOffset += 2;
                    }
-                   else
+                   if (graphElement != null)
                    {
-                       if(Math.Abs(System.Math.Pow(2d,(double)nLayer) - ((double)i)) < 1)//go to on to new layer
+
+                       if (nLayer == 0)
                        {
-                           offsetBetweenLayers = cLayer - nLayer + 1;
-                           horizontalCellOffset += offsetBetweenLayers;
-                           verticalCellOffset += 2;
+                           DrawElement(X, Y, 0, 0, 0, graphElement);
                        }
-                       int localOffset =( i - (int)Math.Pow(2d, (double)nLayer))*offsetBetweenLayers*2;//offset in one layer
-                       DrawElement(X,Y,horizontalCellOffset-localOffset,verticalCellOffset,offsetBetweenLayers,graphElement.Gender);   
+                       else
+                       {
+                           int localOffset = (i - (int) Math.Pow(2d, (double) nLayer))*offsetBetweenLayers*2;
+                               //offset in one layer
+                           DrawElement(X, Y, horizontalCellOffset - localOffset, verticalCellOffset, offsetBetweenLayers,graphElement);
+                       }
+
                    }
-                   
                }
                i++;
            }

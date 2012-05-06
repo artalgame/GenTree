@@ -19,12 +19,17 @@ namespace GenTreeWPF
     /// </summary>
     public partial class EditRelativesWindow : Window
     {
+        private int personIndex;
+        private List<RelationBetweenTwoPerson> relations; 
         private RelationBetweenTwoPerson _currentRelation;
-        public EditRelativesWindow()
+        private EditRelativesWindow()
         {
             InitializeComponent();
         }
-
+        public  EditRelativesWindow(int index):this()
+        {
+            personIndex = index;
+        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //load names of relatives to comboBox
@@ -38,7 +43,11 @@ namespace GenTreeWPF
         private void RefreshTable()
         {
             RelationTableDataGrid.Items.Clear();
-            foreach(RelationBetweenTwoPerson relation in RelationsTable.GetTable())
+
+            relations =
+                RelationsTable.GetTable().Where(
+                    x => PersonList.GetPersonList().GetPersonIndexInTable(x.FirstPerson) == personIndex).ToList();
+            foreach(RelationBetweenTwoPerson relation in relations)
             {
                 RelationTableDataGrid.Items.Add(relation);
             }
@@ -47,7 +56,7 @@ namespace GenTreeWPF
         private void RelationTableDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(RelationTableDataGrid.SelectedIndex!=-1)
-                _currentRelation = RelationsTable.GetTable()[RelationTableDataGrid.SelectedIndex];
+                _currentRelation = relations[RelationTableDataGrid.SelectedIndex];
             else
             {
                 _currentRelation = null;

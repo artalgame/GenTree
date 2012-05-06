@@ -160,8 +160,11 @@ namespace GenTreeWPF
 
         private void EditRelativesButton_Click(object sender, RoutedEventArgs e)
         {
-            var wind = new EditRelativesWindow();
-            wind.Show();
+            if(PeopleDataGrid.SelectedIndex != -1)
+            {
+                var wind = new EditRelativesWindow(PeopleDataGrid.SelectedIndex);
+                wind.Show();
+            }
         }
 
         private void button1_Click_2(object sender, RoutedEventArgs e)
@@ -169,10 +172,10 @@ namespace GenTreeWPF
             if (PeopleDataGrid.SelectedIndex != -1)
             {
                 Person person = PersonList.GetPersonList().GetPersonsList()[PeopleDataGrid.SelectedIndex];
-                var wind = new GraphWindow();
-                PersonsGraph graph = new PersonsGraph(PersonList.GetPersonList(), RelationsTable.GetTable(),person);
-                new DrawPersonGraph(graph, wind.canvas1,(int)wind.Width/2,(int)wind.Height-100,50,50).DrawToCanvas();
+                PersonsGraph graph = new PersonsGraph(PersonList.GetPersonList(), RelationsTable.GetTable(), person);
+                var wind = new GraphWindow(graph);
                 wind.ShowDialog();
+                
             }
         }
     }
