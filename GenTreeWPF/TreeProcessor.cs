@@ -5,6 +5,11 @@ using System.Text;
 using GenTreeBE;
 using GenTreeDAL;
 using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Data.Common;
+using System.Data.Sql;
+
 
 namespace GenTreeCore
 {
@@ -15,6 +20,13 @@ namespace GenTreeCore
         private GenTree _currentTree;
         private Person _currentPerson;
         private static TreeProcessor _singletone;
+        private bool isFromBase = true;
+        private SqlConnectionStringBuilder _builder;
+        public void DeletePerson(Person person)
+        {
+            CurrentTree.DeletePerson(person);
+            new TreeDB().DeletePerson(person.ID,_builder);
+        }
         public bool AddNewPersonToTree(Person newPerson)
         {
             try
@@ -23,11 +35,11 @@ namespace GenTreeCore
                 {
                     foreach(Person person in _currentTree.Persons)
                     {
-                        if (newPerson != person)
-                        {
-                            RelationsTable.GetTable().SetRelationBetweenPersons(newPerson, person, Relatives.NoRelative);
-                            RelationsTable.GetTable().SetRelationBetweenPersons(person, newPerson, Relatives.NoRelative);
-                        }
+                       // if (newPerson != person)
+                       // {
+                       //     RelationsTable.GetTable().SetRelationBetweenPersons(newPerson, person, Relatives.NoRelative);
+                       //     RelationsTable.GetTable().SetRelationBetweenPersons(person, newPerson, Relatives.NoRelative);
+                       // }
                     }
                     return true;
                 }
@@ -53,16 +65,33 @@ namespace GenTreeCore
 
         public bool SetCurrentTree(int index)
         {
-            try
+            if (!isFromBase)
             {
-                GenTree curTreeInfo = _listOfTreeInfo[index];
+                try
+                {
+                    GenTree curTreeInfo = _listOfTreeInfo[index];
 
-                return (new TreeToXml().OpenTree(_treeCatalogName + "\\" + curTreeInfo.Name + ".xml", out _currentTree));
+                    return (new TreeToXml().OpenTree(_treeCatalogName + "\\" + curTreeInfo.Name + ".xml", out _currentTree));
+                }
+                catch
+                {
+                    _currentTree = null;
+                    return false;
+                }
             }
-            catch
+            else
             {
-                _currentTree = null;
-                return false;
+                try
+                {
+                    GenTree curTreeInfo = _listOfTreeInfo[index];
+                    _currentTree = new TreeDB().OpenTree(curTreeInfo.ID, _builder);
+                    return true;
+                }
+                catch
+                {
+                    _currentTree = null;
+                    return false;
+                }
             }
         }
 
@@ -71,6 +100,7 @@ namespace GenTreeCore
             _currentTree = tree;
             return true;
         }
+
         public GenTree CurrentTree
         {
             get
@@ -81,6 +111,7 @@ namespace GenTreeCore
             {
             }
         }
+
         public Person CurrentPerson
         {
             get
@@ -106,6 +137,7 @@ namespace GenTreeCore
                 return false;
             }
         }
+
         public bool GetTreeFromID(int ID, out GenTree tree)
         {
             try
@@ -125,21 +157,41 @@ namespace GenTreeCore
 
         public List<GenTree> GetTreesInfo()
         {
-            try
+            if (!isFromBase)
             {
-                _treeCatalogName = ConfigurationManager.AppSettings.GetValues("treeCatalog")[0];
-                _listOfTreeInfo = new TreeToXml().GetSavedTrees(_treeCatalogName);
-                return _listOfTreeInfo;
+                try
+                {
+                    _treeCatalogName = ConfigurationManager.AppSettings.GetValues("treeCatalog")[0];
+                    _listOfTreeInfo = new TreeToXml().GetSavedTrees(_treeCatalogName);
+                    return _listOfTreeInfo;
+                }
+                catch
+                {
+                    return null;
+                }
             }
-            catch
+            else
             {
-                return null;
+                try
+                {
+                    _listOfTreeInfo = new TreeDB().GetSavedTrees(_builder);
+                    return _listOfTreeInfo;
+                }
+                catch
+                {
+                    return null;
+                }
+               
             }
             
         }
 
         private TreeProcessor()
         {
+           _builder =  new SqlConnectionStringBuilder();
+           _builder.DataSource = @"(local)\SQLExpress";
+           _builder.InitialCatalog = "GenTreeDataBase";
+           _builder.IntegratedSecurity = true;
             try
             {
                 _treeCatalogName = ConfigurationManager.AppSettings.GetValues("treeCatalog")[0];
@@ -153,7 +205,15 @@ namespace GenTreeCore
 
         internal void SaveCurrentTreeToFile()
         {
-            new TreeToXml().SaveTree(_treeCatalogName+"\\"+_currentTree.Name+".xml",CurrentTree);
+            if (isFromBase)
+            {
+                new TreeDB().SaveTree(_builder, CurrentTree);
+            }
+            else
+            {
+                new TreeToXml().SaveTree(_treeCatalogName + "\\" + _currentTree.Name + ".xml", CurrentTree);
+            }
+
         }
     }
 }

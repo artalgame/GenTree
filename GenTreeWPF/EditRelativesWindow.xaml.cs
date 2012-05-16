@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GenTreeBE;
+using GenTreeCore;
 
 namespace GenTreeWPF
 {
@@ -37,6 +38,7 @@ namespace GenTreeWPF
             {
                 RelationComboBox.Items.Add(relativeName);
             }
+            relations = new List<RelationBetweenTwoPerson>();
             RefreshTable();
         }
 
@@ -44,13 +46,27 @@ namespace GenTreeWPF
         {
             RelationTableDataGrid.Items.Clear();
 
-            relations =
-                RelationsTable.GetTable().Where(
+            var person = TreeProcessor.TreeProcessorSingletone.CurrentTree.Persons.GetPersonsList()[personIndex];
+            foreach (var somePerson in TreeProcessor.TreeProcessorSingletone.CurrentTree.Persons.GetPersonsList())
+            {
+                if (somePerson.ID != person.ID)
+                {
+                    RelationBetweenTwoPerson relation = TreeProcessor.TreeProcessorSingletone.CurrentTree.Relations.GetRelationsBetweenPersons(person, somePerson);
+                    if (relation == null)
+                        relation = new RelationBetweenTwoPerson(person, somePerson, Relatives.NoRelative);
+
+                    RelationTableDataGrid.Items.Add(relation);
+                    relations.Add(relation);
+                }
+            }
+            /*
+            relations = RelationsTable.GetTable().Where(
                     x => PersonList.GetPersonList().GetPersonIndexInTable(x.FirstPerson) == personIndex).ToList();
             foreach(RelationBetweenTwoPerson relation in relations)
             {
                 RelationTableDataGrid.Items.Add(relation);
             }
+              */
         }
 
         private void RelationTableDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

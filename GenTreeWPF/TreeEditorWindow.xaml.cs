@@ -79,12 +79,12 @@ namespace GenTreeWPF
         {
             if (isDeleteButtonActive)
             {
-                TreeProcessor.TreeProcessorSingletone.CurrentTree.DeletePerson(
+                TreeProcessor.TreeProcessorSingletone.DeletePerson(
                     TreeProcessor.TreeProcessorSingletone.CurrentPerson);
                 TreeProcessor.TreeProcessorSingletone.CurrentPerson = null;
                 isDeleteButtonActive = false;
                 NewPersonButton.Content = "Add New Person";
-                RefreshListViewOfPerson();
+                RefreshListViewOfPerson();               
             }
             else
             {
@@ -177,6 +177,13 @@ namespace GenTreeWPF
                 wind.ShowDialog();
                 
             }
+        }
+
+        private void PeopleDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            PeopleDataGrid.SelectedItem = null;
+            isDeleteButtonActive = false;
+            NewPersonButton.Content = "Add New Person";
         }
     }
 }

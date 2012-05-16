@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlXml" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -75,6 +76,7 @@
     <Compile Include="RelationToXml.cs" />
     <Compile Include="RelativeBetweenTwoPerson.cs" />
     <Compile Include="SaveOrOpenTree.cs" />
+    <Compile Include="TreeDB.cs" />
     <Compile Include="TreeEditorWindow.xaml.cs">
       <DependentUpon>TreeEditorWindow.xaml</DependentUpon>
     </Compile>

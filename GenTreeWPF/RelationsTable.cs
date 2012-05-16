@@ -10,7 +10,13 @@ namespace GenTreeBE
     {
         public RelationBetweenTwoPerson this[int i]
         {
-            get { return _relationsList[i]; }
+            get 
+            {
+                if ((i >= 0) && (i < _relationsList.Count))
+                    return _relationsList[i];
+                else
+                    return null;
+            }
             set { _relationsList[i] = value; }
         }
 
